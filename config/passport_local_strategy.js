@@ -40,7 +40,7 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(async function (id, done) {
   let userID = await User.findById(id);
   if (!userID) {
-    console.log("Error in config/passport-local");
+    console.log("Error in config/passport-local-user");
     return;
   }
 
@@ -58,7 +58,7 @@ passport.checkAuthentication = function (req, res, next) {
   return res.redirect("/user/sign-in");
 };
 
-passport.setAuthenticatedEmployee = function (req, res, next) {
+passport.setAuthenticatedUser = function (req, res, next) {
   if (req.isAuthenticated()) {
     res.locals.user = req.user;
   }

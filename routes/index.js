@@ -11,6 +11,8 @@ router.get("/about", homeController.about);
 // router.get("/profile", passport.checkAuthentication, homeController.profile);
 router.use("/user", require("./users"));
 router.use("/product", require("./products"))
+router.use("/admin", require("./admin"))
+
 
 
 module.exports = router;
