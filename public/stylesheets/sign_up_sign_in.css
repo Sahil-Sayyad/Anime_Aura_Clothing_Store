@@ -5,7 +5,9 @@
   .bgsignup {
     background: url(/images/login/login.jpg);
   }
-  
+  .adbglogin{
+    background: url(/images/login/login.jpg);
+  }
   .input-group {
     display: flex;
     flex-direction: column;

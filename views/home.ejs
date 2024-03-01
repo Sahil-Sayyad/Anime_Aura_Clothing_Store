@@ -7,7 +7,7 @@
   <title>
     <%= title %>
   </title>
-  <link rel="icon" type="image/x-icon" href="/images/home/logo.png"/>
+  <link rel="icon" type="image/x-icon" href="/images/home/logo.png" />
   <link rel="stylesheet" href="/stylesheets/main.css" />
   <link rel="stylesheet" href="/stylesheets/tailwind.css" />
   <link rel="stylesheet" href="/stylesheets/home.css" />
@@ -55,10 +55,10 @@
           <a class="active" href="/">Home</a>
           <a class="" href="/about">About</a>
           <a class="" href="/user/sign-up">
-          <ion-icon name="person-outline" />
+            <ion-icon name="person-outline" />
           </a>
           <a class="" href="/product/cart">
-          <ion-icon name="bag-outline" />
+            <ion-icon name="bag-outline" />
           </a>
         </div>
       </div>
@@ -82,48 +82,49 @@
         </div>
         <div class="item">
           <img src="/images/slider/4.webp" alt="" />
-        <div class="item">
+          <div class="item">
             <img src="/images/slider/5.webp" alt="" />
+          </div>
+          <div class="item">
+            <img src="/images/slider/6.png" alt="" />
+          </div>
+          <div class="item">
+            <img src="/images/slider/7.png" alt="" />
+          </div>
+          <div class="item">
+            <img src="/images/slider/8.webp" alt="" />
+          </div>
+
         </div>
-        <div class="item">
-          <img src="/images/slider/6.png" alt="" />
+
+        <!-- thumnail -->
+
+        <div class="thumbnail">
+
+          <img src="/images/slider/2.webp" alt="" class="item" />
+          <img src="/images/slider/3.webp" alt="" class="item" />
+          <img src="/images/slider/4.webp" alt="" class="item" />
+          <img src="/images/slider/5.webp" alt="" class="item" />
+          <img src="/images/slider/6.png" alt="" class="item" />
+          <img src="/images/slider/7.png" alt="" class="item" />
+          <img src="/images/slider/8.webp" alt="" class="item" />
+          <img src="/images/slider/1.webp" alt="" class="item" />
+
         </div>
-        <div class="item">
-          <img src="/images/slider/7.png" alt="" />
-        </div>
-        <div class="item">
-          <img src="/images/slider/8.webp" alt="" />
+
+        <!-- animation timer -->
+        <div class="timer"></div>
+
+        <!-- arrows for slider -->
+        <div class="arrows">
+
+          <button id="prev">
+            << /button>
+              <button id="next">></button>
+
         </div>
 
       </div>
-
-      <!-- thumnail -->
-
-      <div class="thumbnail">
-
-        <img src="/images/slider/2.webp" alt="" class="item" />
-        <img src="/images/slider/3.webp" alt="" class="item" />
-        <img src="/images/slider/4.webp" alt="" class="item" />
-        <img src="/images/slider/5.webp" alt="" class="item" />
-        <img src="/images/slider/6.png" alt="" class="item" />
-        <img src="/images/slider/7.png" alt="" class="item" />
-        <img src="/images/slider/8.webp" alt="" class="item" />
-        <img src="/images/slider/1.webp" alt="" class="item" />
-
-      </div>
-
-      <!-- animation timer -->
-      <div class="timer"></div>
-
-      <!-- arrows for slider -->
-      <div class="arrows">
-
-        <button id="prev"><</button>
-        <button id="next">></button>
-
-      </div>
-
-    </div>
     </div>
     <!-- product addition karra hu -->
 
@@ -133,21 +134,30 @@
     </h1>
 
     <div id="pro-wrapper" class="pro-wrapper flex flex-wrap justify-evenly w-full gap-14">
-
+      <% products.forEach(product=> {%>
+        <div class="pro-card w-[290px] h-[400px] bg-gray-100 p-3 rounded-md">
+          <img class="h-[290px] rounded-xl w-full shadow-lg shadow-gray-400 object-cover" src="<%= product.image %>"
+            alt="pro1" />
+          <div class="mt-4">
+            <h1 class="text-zinc-800 font-semibold">
+              <%= product.title %>
+            </h1>
+            <h2 class="text-gray-500">
+              <%= product.category %>
+            </h2>
+            <span class="text-teal-600 text-xl font-bold"><b class="text-gray-600">Rs. </b>
+              <%= product.price %>
+            </span>
+          </div>
+        </div>
+        <%});%>
     </div>
   </main>
-  
+
   <!-- product addition khatam ho gaya -->
 </body>
-  <!-- javascripts -->
-  <script type="module" src="/javascripts/productList.js"></script>
-  <script src="/javascripts/home.js"></script>
-  <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+<!-- javascripts -->
+<script src="/javascripts/home.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </html>

@@ -66,7 +66,7 @@ function onButtonChange(categoryType) {
 // Function to create product HTML template
 function createProductTemplate(product) {
   return `
-  <a href="/product/show"><div class="pro-card w-[290px] h-[400px] bg-gray-100 p-3 rounded-md">
+ <div class="pro-card w-[290px] h-[400px] bg-gray-100 p-3 rounded-md">
     <img
       class="h-[290px] rounded-xl w-full shadow-lg shadow-gray-400 object-cover"
       src=${product.imageUrl}
@@ -80,7 +80,7 @@ function createProductTemplate(product) {
         ><b class="text-gray-600">Rs. </b>${product.price}</span
       >
     </div>
-  </div>  </a>
+  </div> 
   `;
 }
 
