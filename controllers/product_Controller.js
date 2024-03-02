@@ -26,6 +26,7 @@ module.exports.cart = async (req, res) => {
     if (subTotal === 0) {
       shippingFee = 0;
     }
+    console.log(cartinfo)
     return res.render("cart", {
       title: "Anime Aura | Cart",
       cartinfo,
@@ -38,6 +39,7 @@ module.exports.cart = async (req, res) => {
   });
   } catch (err) {
     console.log(`error in product controller ${err}`);
+    console.log(`error in cart controller ${err}`);
     return;
   }
 };
@@ -52,6 +54,7 @@ module.exports.show = async (req, res) => {
     });
   } catch (err) {
     console.log(`error in product controller ${err}`);
+    console.log(`error in show controller ${err}`);
     return;
   }
 };
@@ -90,7 +93,11 @@ module.exports.removeFromCart = async (req, res) => {
     req.flash("success", "Removed Successfully");
     return res.redirect("back");
   } catch (err) {
+
     console.log(`error in remove from  cart controller ${err}`);
+
+    console.log(`error in remove from  controller ${err}`);
+
     return;
   }
 };

@@ -12,11 +12,8 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/images/home/logo.png" />
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
-  />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +64,7 @@
                         </div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Anime Aura Admin</h6>
+                        <h6 class="mb-0">Admin Name</h6>
                         <span>Admin</span>
                     </div>
                 </div>
@@ -100,126 +97,135 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="/images/admin/profile.png" alt=""
                                 style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Anime Aura Admin</span>
+                            <span class="d-none d-lg-inline-flex">Admin Name</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="/admin/destroy-sessionAdmin" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
             <!-- showing products -->
-            <div class="container-fluid  pt-4 px-4 ">
+            <!-- <div class="container-fluid  pt-4 px-4 ">
                 <div class="col-sm-12 col-xl-12">
                     <h3 class="mb-4">Men</h3>
                     <div class="bg-secondary d-flex flex-wrap justify-content-evenly rounded h-100 p-2">
                         <% products.forEach(product=> {%>
-                        <div class="card p-2" style="width: 14rem;">
-                            <img src="<%= product.image %>" class="card-img-top" alt="not show">
-                            <p class="text-secondary"><b>
-                                <%= product.title %>
-                            </b></p>
-                            <p class="card-text text-secondary">
-                                <%= product.category %>
-                            </p>
-                            <p class="card-text text-success">Rs. </b>
-                                <%= product.price %>
-                            </p>
-                        </div>
-                        <%});%>
-                    </div>
-                </div>
-                </div>
-                <!-- Adding new product -->
-                <div class="container-fluid pt-4 px-4" >
-                    <div class="col-sm-12 col-xl-6 ">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Add New Product</h6>
-                            <form action="/admin/create-product" method="POST" enctype="multipart/form-data">
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Product Title</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputEmail3" name="title">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputPassword3" class="col-sm-2 col-form-label"> Category</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputPassword3" name="category">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Price</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputPassword3" name="price">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="mb-3">
-                                        <label for="formFile" class="form-label">Add Product Image file </label>
-                                        <input class="form-control bg-dark" type="file" id="formFile" name="image">
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer Start -->
-                <div class="container-fluid pt-4 px-4">
-                    <div class="bg-secondary rounded-top p-4">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 text-center text-sm-start">
-                                &copy; <a href="#">Anime Aura</a>, All Right Reserved.
+
+                            <div class="card p-2" style="width: 14rem;">
+                                <img src="<%= product.image %>" class="card-img-top" alt="not show">
+                                <p class="text-secondary"><b>
+                                        <%= product.title %>
+                                    </b></p>
+                                <p class="card-text text-secondary">
+                                    <%= product.category %>
+                                </p>
+                                <p class="card-text text-success">Rs. </b>
+                                    <%= product.price %>
+                                </p>
                             </div>
-                            <div class="col-12 col-sm-6 text-center text-sm-end">
-                                Designed By <a href="https://htmlcodex.com">Sahil Sayyad</a>
-                            </div>
-                        </div>
+
+                            <%});%>
                     </div>
                 </div>
-                <!-- Footer End -->
+            </div> -->
+            <!-- Adding new product -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="col-sm-12 col-xl-6 ">
+                    <div class="bg-secondary rounded h-100 p-4">
+                        <h6 class="mb-4">Add New Product</h6>
+                        <form action="/admin/create-product" method="POST" enctype="multipart/form-data">
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Product Title</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputEmail3" name="title">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label"> Category</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputPassword3" name="category">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label">Price</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputPassword3" name="price">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label">Men /Women</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputPassword3" name="shoppingCategory">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Add Product Image file </label>
+                                    <input class="form-control bg-dark" type="file" id="formFile" name="image">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <!-- Content End -->
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Anime Aura</a>, All Right Reserved.
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            Designed By <a href="https://htmlcodex.com">Sahil Sayyad</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
         </div>
+        <!-- Content End -->
+    </div>
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="/stylesheets/lib/chart/chart.min.js"></script>
-        <script src="/stylesheets/lib/easing/easing.min.js"></script>
-        <script src="/stylesheets/lib/waypoints/waypoints.min.js"></script>
-        <script src="/stylesheets/lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="/stylesheets/lib/tempusdominus/js/moment.min.js"></script>
-        <script src="/stylesheets/lib/tempusdominus/js/moment-timezone.min.js"></script>
-        <script src="/stylesheets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/stylesheets/lib/chart/chart.min.js"></script>
+    <script src="/stylesheets/lib/easing/easing.min.js"></script>
+    <script src="/stylesheets/lib/waypoints/waypoints.min.js"></script>
+    <script src="/stylesheets/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/stylesheets/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/stylesheets/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/stylesheets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-        <!-- Template Javascript -->
-        <script src="/javascripts/admin.js"></script>
-        <script>
-            <% if(flash.success && flash.success.length > 0){%>
-                        new Noty({
-                        theme:'sunset',
-                        text: '<h6><%= flash.success%></h6>',
-                        type:'success',
-                        layout:'topRight',
-                        timeout:3000
-                    }).show();
+    <!-- Template Javascript -->
+    <script src="/javascripts/admin.js"></script>
+    <script>
+            <% if (flash.success && flash.success.length > 0) {%>
+            new Noty({
+                theme: 'sunset',
+                text: '<h6><%= flash.success%></h6>',
+                type: 'success',
+                layout: 'topRight',
+                timeout: 3000
+            }).show();
                     <% } %>
       
-                    <% if(flash.error && flash.error.length > 0){%>
-                      new Noty({
-                        theme:'sunset',
-                        text: '<%= flash.error%>',
-                        type:'error',
-                        layout:'topRight',
-                        timeout:3000
-                      }).show();
+                    <% if (flash.error && flash.error.length > 0) {%>
+            new Noty({
+                theme: 'sunset',
+                text: '<%= flash.error%>',
+                type: 'error',
+                layout: 'topRight',
+                timeout: 3000
+            }).show();
                     <% } %>
-          </script>
+    </script>
 </body>
 
 </html>

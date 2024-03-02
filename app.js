@@ -1,5 +1,6 @@
 //import all required packages
 require("dotenv").config();
+const cookieParser = require("cookie-parser");
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 8000;
@@ -13,6 +14,7 @@ const customMware = require("./config/middleware");
 
 //for parsing the form data
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 //serving the static files
 app.use(express.static("./public"));
 
@@ -27,7 +29,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     cookie: {
-      maxAge: 1000 * 60 * 100,
+      maxAge: 1000 * 60 *100,
     },
     store: MongoStore.create(
       {

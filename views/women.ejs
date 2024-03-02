@@ -21,7 +21,7 @@
     <div class="topnavbar">
       <div class="category">
         <button onclick="onButtonChange('men')" id="men" class="gender">
-          <a href="/">MAN</a> 
+         <a href="/">MAN</a> 
         </button>
         <button onclick="onButtonChange('women')" id="women" class="gender">
          <a href="/women"> WOMEN </a>
@@ -130,12 +130,12 @@
 
     <h1 id="headline"
       class="w-fit text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 from-30% to-lime-300 text-3xl font-semibold mt-16 mb-10">
-      Men's Clothing from Anime Aura
+      Womens's Clothing from Anime Aura
     </h1>
 
     <div id="pro-wrapper" class="pro-wrapper flex flex-wrap justify-evenly w-full gap-14">
       <% products.forEach(product=> {%>
-        <% if(product.shoppingCategory === 'Men') {%>
+        <% if(product.shoppingCategory === 'Women') {%>
         <a href="/product/show/productId=<%=product.id%>"><div class="pro-card w-[290px] h-[400px] bg-gray-100 p-3 rounded-md">
           <img class="h-[290px] rounded-xl w-full shadow-lg shadow-gray-400 object-cover" src="<%= product.image %>"
             alt="pro1" />

@@ -28,9 +28,7 @@ module.exports.create = async (req, res) => {
 
 //render sign-In page
 module.exports.signIn = async (req, res) => {
-  if (req.isAuthenticated()) {
-    return res.redirect("/");
-  }
+  
   return res.render("admin_sign_in", {
     title: "Anime Aura | Admin Sign In",
   });
@@ -74,9 +72,20 @@ module.exports.createSessionAdmin = async function (req, res) {
     return;
   }
 };
-
+module.exports.destroySessionAdmin = async (req, res) => {
+  try {
+    res.clearCookie("refreshToken");
+    
+    req.flash("success", "Sign Out Successfully");
+    return res.redirect('/admin/sign-in');
+  } catch (err) {
+    console.log(err);
+    return;
+  }
+};
 module.exports.dashBoard = async (req, res) => {
   try {
+    
     return res.render("admin_panel", {
       title: "Anime Aura | Dashboard",
     });
@@ -110,6 +119,7 @@ module.exports.createProduct = async (req, res) => {
        title,
        category,
        price,
+       shoppingCategory
     } = req.body;
     let path = req.file.path;
     let newPath = path.replace('public','');
@@ -117,6 +127,7 @@ module.exports.createProduct = async (req, res) => {
       title,
       category,
       price,
+      shoppingCategory,
       image:newPath
     })
     req.flash("success", "Product Added Successfully");

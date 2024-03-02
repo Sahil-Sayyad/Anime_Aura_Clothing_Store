@@ -3,13 +3,13 @@ module.exports.home = async (req, res) => {
   try {
     const products = await Product.find({});
 
-    if(products){
+    if (products) {
       return res.render("home", {
         title: "Anime Aura",
-        products
+        products,
       });
     }
-    return res.redirect('/');
+    return res.redirect("/");
   } catch (err) {
     console.log(`error in home controller ${err}`);
     return;
@@ -30,6 +30,19 @@ module.exports.profile = async (req, res) => {
   try {
     return res.render("profile", {
       title: "Anime Aura | Profile",
+    });
+  } catch (err) {
+    console.log(`error in home controller ${err}`);
+    return;
+  }
+};
+module.exports.women = async (req, res) => {
+  try {
+    const products = await Product.find({});
+
+    return res.render("women", {
+      title: "Anime Aura",
+      products,
     });
   } catch (err) {
     console.log(`error in home controller ${err}`);

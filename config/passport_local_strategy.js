@@ -20,12 +20,12 @@ passport.use(
         const isPasswordMatched = bcrypt.compareSync(password, user.password);
         if (!user || !isPasswordMatched) {
           req.flash("error", "Invalid Username / Password or you Don't have an account? Sign Up ");
-         console.log("Invalid Username / Password  ");
+          console.log("Invalid Username / Password  ");
           return done(null, false);
         }
         
       }
-      req.flash("success", "Logged in Successfully");
+      // req.flash("success", "Logged in Successfully");
       return done(null, user);
     }
   )

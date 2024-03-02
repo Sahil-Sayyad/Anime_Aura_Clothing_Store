@@ -1,11 +1,3 @@
-// to set men button as default
-document.addEventListener("DOMContentLoaded", function () {
-    const men = document.getElementById('men');
-    men.style.backgroundColor = "#fff";
-    men.style.color = "black";
-    men.style.borderColor = "red";
-  })
-  
   
   function onButtonChange(categoryType) {
     var category = ['men', 'women'];
@@ -25,8 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
   }
-  
-  
+
   let nextBtnDom = document.getElementById('next');
   let prevBtnDom = document.getElementById('prev');
   
