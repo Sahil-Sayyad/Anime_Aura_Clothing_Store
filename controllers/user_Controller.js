@@ -55,7 +55,7 @@ module.exports.create = async (req, res) => {
       return res.redirect("/user/sign-in");
     }
   } catch (err) {
-    console.log(`error in signup controller of employee ${err}`);
+    console.log(`error in signup controller of user ${err}`);
     return;
   }
 };
