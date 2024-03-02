@@ -26,3 +26,13 @@ module.exports.about = async (req, res) => {
     return;
   }
 };
+module.exports.profile = async (req, res) => {
+  try {
+    return res.render("profile", {
+      title: "Anime Aura | Profile",
+    });
+  } catch (err) {
+    console.log(`error in home controller ${err}`);
+    return;
+  }
+};

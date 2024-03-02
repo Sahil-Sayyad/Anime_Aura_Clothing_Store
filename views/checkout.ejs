@@ -57,7 +57,7 @@
       <div class="flex w-full h-full justify-center items-center">
         <!-- center box -->
         <div
-          class="w-full flex items-center sm:max-w-[800px] h-[650px] bg-blackAplha600 rounded-2xl overflow-hidden"
+          class="w-full flex items-center sm:max-w-[800px] h-[710px] bg-blackAplha600 rounded-2xl overflow-hidden"
         >
           <!-- logo -->
           <div
@@ -70,10 +70,6 @@
               <h1 class="text-secondary">. Aura</h1>
             </div>
           </div>
-
-          <!-- logo-end -->
-
-          <!-- login-box -->
           <div
             class="w-full sm:w-2/3 h-full px-6 py-8 sm:px-8 font-poppins font-medium text-white"
           >
@@ -81,20 +77,32 @@
               <h1
                 class="w-fit text-[2.5rem] text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-lime-400 font-comfortaa font-extrabold"
               >
-                Signup for free
+                Shipping Address
               </h1>
 
               <form action="/user/create" method="post">
                 <div class="input-group">
-                  <label>Name</label>
-                  <input type="text" placeholder="Enter Name" required />
+                  <label>Address</label>
+                  <input type="text" placeholder="Enter Address" required />
                 </div>
                 <div class="input-group">
-                  <label>Email</label>
-                  <input type="email" placeholder="Enter Email" name="email" required />
+                  <label>Apartment, suite, etc.</label>
+                  <input type="email" placeholder="Enter Apartment" name="email" required />
                 </div>
                 <div class="input-group">
-                  <label>Password</label>
+                    <label>City</label>
+                    <input type="email" placeholder="Enter City" name="email" required />
+                  </div>
+                  <div class="input-group">
+                    <label>Country</label>
+                    <input type="email" placeholder="Enter Country" name="email" required />
+                  </div>
+                  <div class="input-group">
+                    <label>State</label>
+                    <input type="email" placeholder="Enter State" name="email" required />
+                  </div>
+                <div class="input-group">
+                  <label>Pin Code</label>
                   <input
                     type="password"
                     placeholder="Enter Password"
@@ -103,10 +111,10 @@
                   />
                 </div>
                 <div class="input-group">
-                  <label>Confirm Password</label>
+                  <label>Phone</label>
                   <input
                     type="password"
-                    placeholder="Confirm Password"
+                    placeholder="Enter Phone"
                     required
                     name="confirmPassword"
                   />
@@ -115,22 +123,12 @@
                   class="bg-indigo-600 hover:bg-indigo-700 py-3 mt-4 px-6 rounded-md"
                   type="submit"
                 >
-                  SIGNUP &#10132;
+                  Place Order &#10132;
                 </button>
               </form>
-
-              <div class="mt-2 text-lg font-comfortaa font-extrabold">
-                Already a member ?
-                <a
-                  class="text-indigo-400 underline decoration-2 underline-offset-2 hover:text-sky-200"
-                  href="/user/sign-In"
-                  >Login
-                </a>
-              </div>
             </div>
           </div>
-          <!-- login-box-end -->
-          <div></div>
+  
         </div>
       </div>
     </main>

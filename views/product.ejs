@@ -6,6 +6,11 @@
     <title>
         <%= title %>
       </title>
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
       <link rel="icon" type="image/x-icon" href="/images/home/logo.png"/>
       <link rel="stylesheet" href="/stylesheets/main.css" />
       <link rel="stylesheet" href="/stylesheets/tailwind.css" />
@@ -39,7 +44,7 @@
           <div class="link">
             <a class="" href="/">Home</a>
             <a class="" href="/about">About</a>
-            <a class="" href="/user/sign-up">
+            <a class="" href="/profile">
               <ion-icon name="person-outline" />
             </a>
             <a class="" href="/product/cart">
@@ -51,14 +56,17 @@
     </nav>
 
     <main class="text-gray-50 bg-primary-color px-[5%] py-16">
+    <form action="/product/addtocart" method="POST">
+
+      <input type="hidden" value="<%=product._id %>" name="id">
       <div
         class="product flex flex-col items-center space-y-6 lg:flex-row lg:space-y-0 justify-around"
-      >
+        >
         <!-- product image -->
         <section class="lg:w-3/12">
           <img
-            class="rounded-md"
-            src="/images/product/1.webp"
+          class="rounded-md"
+            src="<%= product.image %>"
             alt=""
           />
         </section>
@@ -66,21 +74,22 @@
         <!-- product details -->
         <section
           class="poppins-medium flex flex-col space-y-4 w-full lg:w-6/12 bg-zinc-900 p-5 md:p-10 rounded-xl"
-        >
-          <h2 class="text-gray-400">Home / T-Shirt</h2>
-          <h1 class="text-3xl font-semibold">Men's Fashion T Shirt</h1>
-          <span class="text-sky-200 text-3xl"
-            ><b class="text-sky-500">Rs. </b>139</span
           >
+          <h2 class="text-gray-400"> <%= product.title %></h2>
+          <h1 class="text-3xl font-semibold"><%= product.category %></h1>
+          <span class="text-sky-200 text-3xl"
+          ><b class="text-sky-500">Rs. </b><%= product.price %></span
+          >
+
           <!-- select size -->
           <div>
             <h1 class="text-xl text-gray-400 mb-2">Select Size</h1>
             <div class="flex font-semibold items-center gap-4 cursor-pointer">
               <div
-                id="s"
+              id="s"
                 onclick="onSizeChange('s')"
                 class="flex justify-center items-center w-16 h-12 rounded-xl border-lime-200/80 border-2 size"
-              >
+                >
                 S
               </div>
               <div
@@ -102,36 +111,39 @@
                 onclick="onSizeChange('xl')"
                 class="flex justify-center items-center w-16 h-12 rounded-xl border-lime-200/80 border-2 size"
               >
-                XL
+              XL
               </div>
             </div>
           </div>
           <!-- selct size end -->
 
           <!-- quantity -->
-
+          
           <div>
             <h1 class="text-xl text-gray-400 mb-2">Quantity</h1>
             <input
               class="text-gray-800 text-center w-16 text-xl rounded-md p-3 outline-none"
               type="number"
-              value="1"
               max="10"
               min="1"
-            />
-          </div>
-
-          <!-- quantity end-->
+              name="quantity"
+              required
+              />
+            </div>
+            
+            <!-- quantity end-->
 
           <!-- add to cart btn -->
           <div
             class="w-56 py-3 px-3 flex items-center justify-around hover:scale-95 ease-linear bg-gradient-to-tr from-lime-300 to-indigo-400 rounded-md cursor-pointer"
           >
             <ion-icon class="text-gray-800" name="cart-outline"></ion-icon>
-            <button class="text-gray-800 text-2xl font-semibold">
-              Add to Cart
-            </button>
+              <button class="text-gray-800 text-2xl font-semibold">
+                Add to Cart
+              </button>
+           
           </div>
+        </form>
           <!-- add to cart btn end-->
 
           <!-- product description -->
@@ -157,12 +169,32 @@
         </section>
       </div>
     </main>
+    <script>
+      <% if(flash.success && flash.success.length > 0){%>
+                  new Noty({
+                  theme:'sunset',
+                  text: '<h3><%= flash.success%></h3>',
+                  type:'success',
+                  layout:'topRight',
+                  timeout:3000
+              }).show();
+              <% } %>
 
+              <% if(flash.error && flash.error.length > 0){%>
+                new Noty({
+                  theme:'sunset',
+                  text: '<%= flash.error%>',
+                  type:'error',
+                  layout:'topRight',
+                  timeout:3000
+                }).show();
+              <% } %>
+    </script>
     <script src="/javascripts/product.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
+      ></script>
     <script
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"

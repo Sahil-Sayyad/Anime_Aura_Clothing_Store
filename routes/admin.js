@@ -7,7 +7,7 @@ const adminController = require("../controllers/admin_Controller");
 
 router.get("/sign-in", adminController.signIn);
 router.get("/create", adminController.create);
-router.post("/create-session",adminController.createSession);
+router.post("/create-sessionAdmin",adminController.createSessionAdmin);
 router.get("/dashboard",  adminController.dashBoard);
 router.get("/product",  adminController.product);
 router.post("/create-product", upload.single("image") ,adminController.createProduct);

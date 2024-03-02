@@ -54,7 +54,7 @@
         <div class="link">
           <a class="active" href="/">Home</a>
           <a class="" href="/about">About</a>
-          <a class="" href="/user/sign-up">
+          <a class="" href="/profile">
             <ion-icon name="person-outline" />
           </a>
           <a class="" href="/product/cart">
@@ -119,7 +119,7 @@
         <div class="arrows">
 
           <button id="prev">
-            << /button>
+            <</button>
               <button id="next">></button>
 
         </div>
@@ -135,13 +135,14 @@
 
     <div id="pro-wrapper" class="pro-wrapper flex flex-wrap justify-evenly w-full gap-14">
       <% products.forEach(product=> {%>
-        <div class="pro-card w-[290px] h-[400px] bg-gray-100 p-3 rounded-md">
+        <a href="/product/show/productId=<%=product.id%>"><div class="pro-card w-[290px] h-[400px] bg-gray-100 p-3 rounded-md">
           <img class="h-[290px] rounded-xl w-full shadow-lg shadow-gray-400 object-cover" src="<%= product.image %>"
             alt="pro1" />
           <div class="mt-4">
             <h1 class="text-zinc-800 font-semibold">
               <%= product.title %>
             </h1>
+
             <h2 class="text-gray-500">
               <%= product.category %>
             </h2>
@@ -150,6 +151,7 @@
             </span>
           </div>
         </div>
+      </a>
         <%});%>
     </div>
   </main>

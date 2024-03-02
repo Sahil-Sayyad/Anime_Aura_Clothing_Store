@@ -8,6 +8,8 @@ const homeController = require("../controllers/home_Controller");
 
 router.get("/", homeController.home);
 router.get("/about", homeController.about);
+router.get("/profile", passport.checkAuthentication, homeController.profile);
+
 router.use("/user", require("./users"));
 router.use("/admin", require("./admin"))
 router.use("/product", require("./products"))

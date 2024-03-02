@@ -64,7 +64,7 @@ module.exports.create = async (req, res) => {
 module.exports.createSession = async function (req, res) {
   try {
     req.flash("success", "Logged in Successfully");
-    return res.redirect("/");
+    return res.redirect("/profile");
   } catch (err) {
     console.log(`Error in createsessio controller ${err}`);
     return;

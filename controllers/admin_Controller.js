@@ -37,7 +37,7 @@ module.exports.signIn = async (req, res) => {
 };
 
 //sign in and create session for the user
-module.exports.createSession = async function (req, res) {
+module.exports.createSessionAdmin = async function (req, res) {
   try {
     const { email, password } = req.body;
 
