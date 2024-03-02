@@ -4,8 +4,6 @@ const User = require("../models/user");
 
 module.exports.cart = async (req, res) => {
   try {
-    if(locals.user){
-
       let user = await User.findById(req.user._id)
       .populate("cart")
       .populate({
@@ -34,7 +32,7 @@ module.exports.cart = async (req, res) => {
       shippingFee,
       subTotal,
     });
-  }
+  
   return res.render("cart",{
     title: "Anime Aura | Cart",
   });
