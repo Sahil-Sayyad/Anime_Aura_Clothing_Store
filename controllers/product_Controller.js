@@ -4,7 +4,7 @@ const User = require("../models/user");
 
 module.exports.cart = async (req, res) => {
   try {
-      let user = await User.findById(req.user._id)
+    let user = await User.findById(req.user._id)
       .populate("cart")
       .populate({
         path: "cart",
@@ -26,17 +26,16 @@ module.exports.cart = async (req, res) => {
     if (subTotal === 0) {
       shippingFee = 0;
     }
-    console.log(cartinfo)
     return res.render("cart", {
       title: "Anime Aura | Cart",
       cartinfo,
       shippingFee,
       subTotal,
     });
-  
-  return res.render("cart",{
-    title: "Anime Aura | Cart",
-  });
+
+    return res.render("cart", {
+      title: "Anime Aura | Cart",
+    });
   } catch (err) {
     console.log(`error in product controller ${err}`);
     console.log(`error in cart controller ${err}`);
@@ -93,23 +92,59 @@ module.exports.removeFromCart = async (req, res) => {
     req.flash("success", "Removed Successfully");
     return res.redirect("back");
   } catch (err) {
-
     console.log(`error in remove from  cart controller ${err}`);
 
-    console.log(`error in remove from  controller ${err}`);
 
     return;
   }
 };
 
-
 module.exports.checkOut = async (req, res) => {
   try {
+    const cartlist = req.body;
+    const data = cartlist.array;
+    console.log(data);
+    const objectIdRegex = /new ObjectId\('([a-fA-F0-9]+)'\)/g;
+
+    // Array to store the extracted ObjectIDs
+    const objectIds = [];
+    let match;
+
+    // Loop through each match found by the regular expression and extract the ObjectID string
+    while ((match = objectIdRegex.exec(data)) !== null) {
+      objectIds.push(match[1]); // Match group 1 contains the ObjectID string
+    }
+
+    console.log(objectIds);
+    const productIds = [];
+    let k = 0;
+    for (let i = 1; i <= objectIds.length; i++) {
+      productIds[k] = objectIds[i];
+      k++;
+      i += 2;
+    }
+    console.log(productIds);
+    
     return res.render("checkout", {
       title: "Anime Aura | Checkout",
+      productIds,
     });
   } catch (err) {
     console.log(`error in add to checkout controller ${err}`);
+    return;
+  }
+};
+module.exports.orderPlaced = async (req, res) => {
+  try {
+
+    // req.flash("success", "Removed Successfully");
+    return res.render("order_placed", {
+      title: "Anime Aura | Order Placed",
+      
+    });
+  } catch (err) {
+    console.log(`error in remove from  cart controller ${err}`);
+
     return;
   }
 };

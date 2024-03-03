@@ -128,9 +128,14 @@
                   <%=subTotal + shippingFee%>
                 </b></span>
             </div>
-            <button class="w-40 mt-10 bg-indigo-700 hover:bg-indigo-800 py-3 text-white text-xl rounded-full">
-              <a href="/product/checkout"> Checkout &#10132; </a>
-            </button>
+            <form action="/product/checkout" method="POST">
+              <input type="hidden" name="array" value="<%= cartinfo %>">
+              <button class="w-40 mt-10 bg-indigo-700 hover:bg-indigo-800 py-3 text-white text-xl rounded-full">
+                Checkout &#10132; 
+              </button>
+            </form>
+         
+
           </div>
         </div>
       </div>
