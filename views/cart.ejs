@@ -59,8 +59,8 @@
       class="w-fit text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-400">
       Cart
     </h1>
-
-    <%if(cartinfo.length> 0) { %>
+    <% if(noShow){ %>
+      <%if(cartinfo.length> 0) { %>
       <div id="wrapper" class="flex flex-wrap flex-col gap-10 xl:flex-row xl:gap-14 justify-between mt-10">
         <div id="cart-wrapper"
           class="left-cart-section flex flex-col gap-10 h-[600px] overflow-y-scroll no-scrollbar flex-grow bg-zinc-950">
@@ -128,13 +128,31 @@
                   <%=subTotal + shippingFee%>
                 </b></span>
             </div>
-            <form action="/product/checkout" method="POST">
+            <% if (length > 0){%>
+              <br>
+              <hr>
+              <p>Shipping address</p>
+              <br>
+              <p><%= addressinfo.apartment%>, <%= addressinfo.city%>, <%= addressinfo.state%>, <%= addressinfo.country%>  <%= addressinfo.pincode%> </p>
+              <br>
+              <hr>
+              <a href="/product/add-address">Change Address</a>
+              <hr>
+              <form action="/product/order-placed" method="POST">
+                <input type="hidden" name="array" value="<%= cartinfo %>">
+                <button class="w-40 mt-10 bg-indigo-700 hover:bg-indigo-800 py-3 text-white text-xl rounded-full">
+                  Place Order &#10132;
+                </button>
+              </form>
+
+            <%}else{%>
+            <form action="/product/add-address" method="POST">
               <input type="hidden" name="array" value="<%= cartinfo %>">
               <button class="w-40 mt-10 bg-indigo-700 hover:bg-indigo-800 py-3 text-white text-xl rounded-full">
-                Checkout &#10132; 
+                Checkout &#10132;
               </button>
             </form>
-         
+           <%}%>
 
           </div>
         </div>
@@ -146,12 +164,12 @@
 
 
       <div>
-        <h1 class="text-5xl text-emerald-300 mt-4 mb-1">Your Cart is Empty</h1>
+        <h1 class="text-5xl text-emerald-300 mt-4 mb-1">Your Anime Aura Cart is Empty</h1>
         <hr class="w-[100%] mb-4" />
 
       </div>
-
     </section>
+    <%}%>
     <%}%>
       <script>
       <% if (flash.success && flash.success.length > 0) {%>

@@ -61,11 +61,7 @@
               Shipping Address
             </h1>
 
-            <form action="/product/order-placed" method="post">
-              <div class="input-group">
-                <label>Address</label>
-                <input type="text" placeholder="Enter Address" name="address" required />
-              </div>
+            <form action="/product/save-address" method="post">
               <div class="input-group">
                 <label>Apartment, Building, etc.</label>
                 <input type="text" placeholder="Enter Apartment, Building" name="apartment" required />
@@ -75,28 +71,25 @@
                 <input type="text" placeholder="Enter City" name="city" required />
               </div>
               <div class="input-group">
-                <label>Country</label>
-                <input type="text" placeholder="Enter Country" name="country" required />
-              </div>
-              <div class="input-group">
                 <label>State</label>
                 <input type="text" placeholder="Enter State" name="state" required />
               </div>
               <div class="input-group">
+                <label>Country</label>
+                <input type="text" placeholder="Enter Country" name="country" required />
+              </div>
+              <div class="input-group">
                 <label>Pin Code</label>
-                <input type="text" placeholder="Enter pin code" name="password" required />
+                <input type="text" placeholder="Enter pin code" name="pincode" required />
               </div>
               <div class="input-group">
                 <label>Phone</label>
                 <input type="text" placeholder="Enter Phone" required name="phone" />
               </div>
               <button class="bg-indigo-600 hover:bg-indigo-700 py-3 mt-4 px-6 rounded-md" type="submit">
-                Place Order &#10132;
+                Save
               </button>
             </form>
-            <% productIds.forEach(id=> {%>
-                 <h1><%=id%></h1>
-            <%})%>
           </div>
         </div>
       </div>

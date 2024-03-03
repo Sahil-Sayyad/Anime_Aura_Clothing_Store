@@ -1,9 +1,18 @@
 const Product = require("../models/product");
 const Cart = require("../models/cart");
 const User = require("../models/user");
+const Address = require("../models/address");
 
 module.exports.cart = async (req, res) => {
   try {
+    if (!req.isAuthenticated()) {
+      let noShow = false;
+      return res.render("cart", {
+        title: "Anime Aura | Cart",
+        noShow,
+      });
+    }
+
     let user = await User.findById(req.user._id)
       .populate("cart")
       .populate({
@@ -12,7 +21,18 @@ module.exports.cart = async (req, res) => {
           path: "product",
           module: "Product",
         },
-      });
+      })
+      .populate("address");
+    let address = await Address.find({});
+    let length = 0;
+    let addressinfo;
+    if (address) {
+      addressinfo = user.address;
+      if (addressinfo) {
+        length = Object.keys(addressinfo).length;
+      }
+    }
+
     const cartinfo = user.cart;
     let subTotal = 0;
     cartinfo.forEach((item) => {
@@ -26,18 +46,17 @@ module.exports.cart = async (req, res) => {
     if (subTotal === 0) {
       shippingFee = 0;
     }
+    let noShow = true;
     return res.render("cart", {
       title: "Anime Aura | Cart",
       cartinfo,
       shippingFee,
       subTotal,
-    });
-
-    return res.render("cart", {
-      title: "Anime Aura | Cart",
+      noShow,
+      addressinfo,
+      length,
     });
   } catch (err) {
-    console.log(`error in product controller ${err}`);
     console.log(`error in cart controller ${err}`);
     return;
   }
@@ -94,56 +113,57 @@ module.exports.removeFromCart = async (req, res) => {
   } catch (err) {
     console.log(`error in remove from  cart controller ${err}`);
 
-
     return;
   }
 };
 
-module.exports.checkOut = async (req, res) => {
+module.exports.addAddress = async (req, res) => {
   try {
-    const cartlist = req.body;
-    const data = cartlist.array;
-    console.log(data);
-    const objectIdRegex = /new ObjectId\('([a-fA-F0-9]+)'\)/g;
-
-    // Array to store the extracted ObjectIDs
-    const objectIds = [];
-    let match;
-
-    // Loop through each match found by the regular expression and extract the ObjectID string
-    while ((match = objectIdRegex.exec(data)) !== null) {
-      objectIds.push(match[1]); // Match group 1 contains the ObjectID string
-    }
-
-    console.log(objectIds);
-    const productIds = [];
-    let k = 0;
-    for (let i = 1; i <= objectIds.length; i++) {
-      productIds[k] = objectIds[i];
-      k++;
-      i += 2;
-    }
-    console.log(productIds);
-    
-    return res.render("checkout", {
-      title: "Anime Aura | Checkout",
-      productIds,
+    return res.render("address", {
+      title: "Anime Aura | Add Address",
     });
   } catch (err) {
-    console.log(`error in add to checkout controller ${err}`);
+    console.log(`error in address controller ${err}`);
     return;
   }
 };
 module.exports.orderPlaced = async (req, res) => {
   try {
-
-    // req.flash("success", "Removed Successfully");
     return res.render("order_placed", {
       title: "Anime Aura | Order Placed",
-      
     });
   } catch (err) {
     console.log(`error in remove from  cart controller ${err}`);
+
+    return;
+  }
+};
+
+module.exports.saveAddress = async (req, res) => {
+  try {
+    const { apartment, state, city, country, pincode, phone } = req.body;
+    const address = await Address.create({
+      apartment,
+      city,
+      state,
+      country,
+      pincode,
+      phone,
+      user: req.user._id,
+    });
+    await User.findByIdAndUpdate(
+      req.user._id,
+      {
+        address: address,
+      },
+      {
+        new: true,
+      }
+    );
+    req.flash("success", "Address saved Successfully");
+    return res.redirect("/product/cart");
+  } catch (err) {
+    console.log(`error in save address cart controller ${err}`);
 
     return;
   }

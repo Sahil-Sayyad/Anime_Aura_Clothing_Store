@@ -21,6 +21,12 @@ const userSchema = new mongoose.Schema(
         ref: "Cart",
       },
     ],
+    address: 
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Address",
+      },
+    
   },
   {
     timestamps: true,
