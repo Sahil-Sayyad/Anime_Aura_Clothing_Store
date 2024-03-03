@@ -131,11 +131,11 @@
             <% if (length > 0){%>
               <br>
               <hr>
+              <br>
               <p>Shipping address</p>
               <br>
               <p><%= addressinfo.apartment%>, <%= addressinfo.city%>, <%= addressinfo.state%>, <%= addressinfo.country%>  <%= addressinfo.pincode%> </p>
               <br>
-              <hr>
               <a href="/product/add-address">Change Address</a>
               <hr>
               <form action="/product/order-placed" method="POST">

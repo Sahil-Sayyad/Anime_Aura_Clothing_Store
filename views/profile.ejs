@@ -53,43 +53,104 @@
         </div>
     </nav>
 
-    <main class="text-gray-50 bg-primary-color px-[5%] py-16">
-
-        <div class="product flex flex-col items-center space-y-6 lg:flex-row lg:space-y-0 justify-around">
-            
-            <section class="lg:w-3/12">
-                <img class="rounded-md" src="/images/admin/profile.png" alt="" />
-                <br>
-                <div class="w-56 py-3 px-3 flex items-center justify-around hover:scale-95 ease-linear bg-gradient-to-tr from-lime-300 to-indigo-400 rounded-md cursor-pointer">
-                
-                  
-                    <button class="text-gray-800 text-2xl font-semibold">
-                        <a href="/user/sign-out">Sign Out</a>
-                    </button>
-
-                </div>
-            </section>
-
-            <section class="poppins-medium flex flex-col space-y-4 w-full lg:w-6/12 bg-zinc-900 p-5 md:p-10 rounded-xl">
-                <h2 class="text-gray-400"> </h2>
-                <h1 class="text-3xl font-semibold"></h1>
-                <span class="text-sky-200 text-3xl"><b class="text-sky-500"></b></span>
-
-                </form>
-
-                <div>
-                    <h1 class="text-3xl text-emerald-300 mt-4 mb-1">Order History</h1>
-                    <hr class="w-[10%] mb-4" />
-
-                    <div class="flex flex-col space-y-3 leading-9">
-                        
-
-                    </div>
-                </div>
-
-            </section>
+    <main class="px-[5%] mt-24 font-comfortaa text-white max-w-[1700px]">
+        <section class="lg:w-3/12">
+            <img class="rounded-md" src="/images/admin/profile.png" alt="" />
+        </section>
+        <br>
+        <div class="w-56 py-3 px-3 flex items-center justify-around hover:scale-95 ease-linear bg-gradient-to-tr from-lime-300 to-indigo-400 rounded-md cursor-pointer">
+            <button class="text-gray-800 text-2xl font-semibold">
+                <a href="/user/sign-out">Sign Out</a>
+            </button>
         </div>
-    </main>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <h1
+          class="w-fit text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-400">
+          Order History
+        </h1>
+        <br>
+        <hr>
+          <div id="wrapper" class="flex flex-wrap flex-col gap-10 xl:flex-row xl:gap-14 justify-between mt-10">
+            <div id="cart-wrapper"
+              class="left-cart-section flex flex-col gap-10 h-[600px] overflow-y-scroll no-scrollbar flex-grow bg-zinc-950">
+              <% cartinfo.forEach(item=> { %>
+    
+                <div class="card flex items-center">
+                  <img class="h-36 object-cover rounded-xl" src="<%=item.product.image%>" alt="product" />
+    
+                  <div class="flex flex-col gap-3 md:flex-row md:gap-14 w-full px-4 md:px-6 justify-between">
+                    <div class="flex flex-col gap-2 font-poppins font-medium">
+                      <h1 class="max-w-[400px] md:text-xl">
+                        <%= item.product.title%>
+                      </h1>
+                      <h2 class="text-zinc-500">
+                        <%= item.product.category%>
+                      </h2>
+    
+                      <!-- Quantity -->
+                      <div class="flex items-center gap-4 text-zinc-500 cursor-pointer">
+                        <h1 class="font-comfortaa text-gray-200">Quantity : <%= item.quantity%>
+                        </h1>
+                      </div>
+                    </div>
+    
+                    <span class="text-xl md:text-2xl font-poppins font-medium">
+                      Rs.
+                      <b id="total" class="text-2xl md:text-3xl text-lime-400">
+                        <%= item.product.price%>
+                      </b>
+                    </span>
+                  </div>
+                  <div class="text-sm h-full rounded-r-md hover:bg-red-600 cursor-pointer">
+                    <a href="/product/remove/<%= item._id%>"><ion-icon name="close-outline" /></a>
+                  </div>
+                </div>
+                <%})%>
+            </div>
+    
+            <div id="summary" class="right-cart-section mb-10 flex flex-col gap-4 w-full max-w-[400px] xl:pl-[5%]">
+              <h1
+                class="w-fit font-extrabold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-indigo-400">
+                Summary
+              </h1>
+    
+              <div class="font-poppins font-medium text-zinc-400">
+                <div class="my-2 flex items-center justify-between text-2xl">
+                  <span>SubTotal:</span>
+                  <span>Rs. <b id="subTotal">
+                      <%=subTotal%>
+                    </b></span>
+                </div>
+                <div class="my-2 flex items-center justify-between text-2xl">
+                  <span>Shipping fee:</span>
+                  <span>Rs. <b>100</b></span>
+                </div>
+                <hr />
+                <div class="my-3 font-comfortaa">
+                  <h1 class="text-gray-200">Delivery</h1>
+                  <p>Depends upon your location usually take 3-5 bussiness Days.</p>
+                </div>
+                <div class="my-2 flex items-center justify-between text-3xl">
+                  <span>Total</span>
+                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-400">Rs. <b
+                      id="total">
+                      <%=subTotal + shippingFee%>
+                    </b></span>
+                </div>
+                  <br>
+                  <hr>
+                  <br>
+                  <p><b>Shipping address</b></p>
+                  <br>
+                  <p><%= addressinfo.apartment%>, <%= addressinfo.city%>, <%= addressinfo.state%>, <%= addressinfo.country%>  <%= addressinfo.pincode%> </p>
+                  
+              </div>
+            </div>
+          </div>
+      </main>
     <script>
       <% if (flash.success && flash.success.length > 0) {%>
             new Noty({
