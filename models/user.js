@@ -21,6 +21,12 @@ const userSchema = new mongoose.Schema(
         ref: "Cart",
       },
     ],
+    order: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Order",
+      },
+    ],
     address: 
       {
         type: mongoose.Schema.Types.ObjectId,

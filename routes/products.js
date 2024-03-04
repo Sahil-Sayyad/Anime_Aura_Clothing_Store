@@ -11,6 +11,6 @@ router.get("/remove/:productId", passport.checkAuthentication, productController
 router.get("/add-address", passport.checkAuthentication, productController.addAddress);
 router.post("/save-address", passport.checkAuthentication, productController.saveAddress);
 router.get("/order-placed", passport.checkAuthentication, productController.orderPlaced);
-
+router.get('/order-history', passport.checkAuthentication, productController.orderHistory);
 
 module.exports = router;

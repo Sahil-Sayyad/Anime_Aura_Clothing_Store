@@ -2,7 +2,7 @@ const Product = require("../models/product");
 const Cart = require("../models/cart");
 const User = require("../models/user");
 const Address = require("../models/address");
-
+const Order = require("../models/order");
 module.exports.cart = async (req, res) => {
   try {
     if (!req.isAuthenticated()) {
@@ -171,3 +171,59 @@ module.exports.orderPlaced = async (req, res) => {
   }
 };
 
+
+module.exports.orderHistory = async (req, res) => {
+  try {
+    let ts = Date.now();
+    let date_ob = new Date(ts);
+    let date = date_ob.getDate();
+    let month = date_ob.getMonth() + 1;
+    let year = date_ob.getFullYear();
+    let currentdate = year + "-" + month + "-" + date;
+    let user = await User.findById(req.user._id)
+      .populate("cart")
+      .populate({
+        path: "cart",
+        populate: {
+          path: "product",
+          module: "Product",
+        },
+      })
+      .populate("address");
+    let address = await Address.find({});
+    let addressinfo;
+    if (address) {
+      addressinfo = user.address;
+    }
+
+    const cartinfo = user.cart;
+    let subTotal = 0;
+    cartinfo.forEach((item) => {
+      let price = parseFloat(item.product.price);
+      let quantity = parseFloat(item.quantity);
+      if (!isNaN(price) && !isNaN(quantity)) {
+        subTotal = subTotal + price * quantity;
+      }
+    });
+    let shippingFee = 100;
+    subTotal = subTotal + shippingFee;
+    const order = await Order.create({
+      customername: user.name,
+      totalAmount: subTotal,
+      orderdate: currentdate,
+      user: req.user._id,
+    });
+    for (let item of cartinfo) {
+      order.product.push(item.product._id);
+      user.cart.pop(item.product._id);
+    }
+    user.order.push(order);
+    await order.save();
+    await user.save();
+    await Cart.deleteMany({});
+    return res.redirect("/profile");
+  } catch (err) {
+    console.log(err);
+    return;
+  }
+};

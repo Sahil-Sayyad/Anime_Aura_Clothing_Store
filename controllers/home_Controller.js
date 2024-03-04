@@ -37,9 +37,8 @@ module.exports.about = async (req, res) => {
 module.exports.profile = async (req, res) => {
   try {
     let user = await User.findById(req.user._id)
-      .populate("cart")
       .populate({
-        path: "cart",
+        path: "order",
         populate: {
           path: "product",
           module: "Product",
@@ -55,25 +54,23 @@ module.exports.profile = async (req, res) => {
         length = Object.keys(addressinfo).length;
       }
     }
+   let noShow = false;
+   let subTotal;
+    if (user && user.order) {
+         noShow = true;
+      user.order.forEach(order => {
 
-    const cartinfo = user.cart;
-    let subTotal = 0;
-    cartinfo.forEach((item) => {
-      let price = parseFloat(item.product.price);
-      let quantity = parseFloat(item.quantity);
-      if (!isNaN(price) && !isNaN(quantity)) {
-        subTotal = subTotal + price * quantity;
-      }
-    });
+        if (order.product) {
+          order.product.forEach(product => {
 
-    let shippingFee = 100;
-    if (subTotal === 0) {
-      shippingFee = 0;
+          });
+        }
+      });
     }
-    let noShow = true;
+    let shippingFee = 100;
     return res.render("profile", {
       title: "Anime Aura | Profile",
-      cartinfo,
+      user,
       shippingFee,
       subTotal,
       noShow,
