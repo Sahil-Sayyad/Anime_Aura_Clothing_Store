@@ -61,6 +61,7 @@ module.exports.cart = async (req, res) => {
     return;
   }
 };
+
 module.exports.show = async (req, res) => {
   try {
     const id = req.params.productId;
@@ -71,11 +72,11 @@ module.exports.show = async (req, res) => {
       product: product,
     });
   } catch (err) {
-    console.log(`error in product controller ${err}`);
     console.log(`error in show controller ${err}`);
     return;
   }
 };
+
 module.exports.addToCart = async (req, res) => {
   try {
     const { quantity, id } = req.body;
@@ -123,18 +124,7 @@ module.exports.addAddress = async (req, res) => {
       title: "Anime Aura | Add Address",
     });
   } catch (err) {
-    console.log(`error in address controller ${err}`);
-    return;
-  }
-};
-module.exports.orderPlaced = async (req, res) => {
-  try {
-    return res.render("order_placed", {
-      title: "Anime Aura | Order Placed",
-    });
-  } catch (err) {
-    console.log(`error in remove from  cart controller ${err}`);
-
+    console.log(`error in add address controller ${err}`);
     return;
   }
 };
@@ -163,8 +153,21 @@ module.exports.saveAddress = async (req, res) => {
     req.flash("success", "Address saved Successfully");
     return res.redirect("/product/cart");
   } catch (err) {
-    console.log(`error in save address cart controller ${err}`);
+    console.log(`error in save address  controller ${err}`);
 
     return;
   }
 };
+
+module.exports.orderPlaced = async (req, res) => {
+  try {
+    return res.render("order_placed", {
+      title: "Anime Aura | Order Placed",
+    });
+  } catch (err) {
+    console.log(`error in order placed controller ${err}`);
+
+    return;
+  }
+};
+

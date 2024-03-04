@@ -10,7 +10,7 @@ router.post("/addtocart", passport.checkAuthentication, productController.addToC
 router.get("/remove/:productId", passport.checkAuthentication, productController.removeFromCart);
 router.get("/add-address", passport.checkAuthentication, productController.addAddress);
 router.post("/save-address", passport.checkAuthentication, productController.saveAddress);
-router.post("/order-placed", passport.checkAuthentication, productController.orderPlaced);
+router.get("/order-placed", passport.checkAuthentication, productController.orderPlaced);
 
 
 module.exports = router;

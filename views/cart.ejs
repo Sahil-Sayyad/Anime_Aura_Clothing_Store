@@ -134,20 +134,18 @@
               <br>
               <p>Shipping address</p>
               <br>
-              <p><%= addressinfo.apartment%>, <%= addressinfo.city%>, <%= addressinfo.state%>, <%= addressinfo.country%>  <%= addressinfo.pincode%> </p>
+              <p><%= addressinfo.apartment%>, <%= addressinfo.city%>, <%= addressinfo.state%>, <%= addressinfo.country%>  <%= addressinfo.pincode%> .</p>
               <br>
               <a href="/product/add-address">Change Address</a>
               <hr>
-              <form action="/product/order-placed" method="POST">
-                <input type="hidden" name="array" value="<%= cartinfo %>">
+              <form action="/product/order-placed" method="GET">
                 <button class="w-40 mt-10 bg-indigo-700 hover:bg-indigo-800 py-3 text-white text-xl rounded-full">
                   Place Order &#10132;
                 </button>
               </form>
 
             <%}else{%>
-            <form action="/product/add-address" method="POST">
-              <input type="hidden" name="array" value="<%= cartinfo %>">
+            <form action="/product/add-address" method="GET">
               <button class="w-40 mt-10 bg-indigo-700 hover:bg-indigo-800 py-3 text-white text-xl rounded-full">
                 Checkout &#10132;
               </button>

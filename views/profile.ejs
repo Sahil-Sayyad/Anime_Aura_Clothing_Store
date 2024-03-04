@@ -73,6 +73,8 @@
         </h1>
         <br>
         <hr>
+        <% if(noShow){ %>
+          <%if(cartinfo.length> 0) { %>
           <div id="wrapper" class="flex flex-wrap flex-col gap-10 xl:flex-row xl:gap-14 justify-between mt-10">
             <div id="cart-wrapper"
               class="left-cart-section flex flex-col gap-10 h-[600px] overflow-y-scroll no-scrollbar flex-grow bg-zinc-950">
@@ -140,17 +142,24 @@
                       <%=subTotal + shippingFee%>
                     </b></span>
                 </div>
+                <% if (length > 0){%>
                   <br>
                   <hr>
                   <br>
                   <p><b>Shipping address</b></p>
                   <br>
-                  <p><%= addressinfo.apartment%>, <%= addressinfo.city%>, <%= addressinfo.state%>, <%= addressinfo.country%>  <%= addressinfo.pincode%> </p>
-                  
+                  <p><%= addressinfo.apartment%>, <%= addressinfo.city%>, <%= addressinfo.state%>, <%= addressinfo.country%>  <%= addressinfo.pincode%> .</p>
+                  <%}%>
+                  <br>
+                  <hr>
+                  <br>
+                  <p>Thank you for choosing Anime Aura.</p>
               </div>
             </div>
           </div>
       </main>
+      <%}%>
+      <%}%>
     <script>
       <% if (flash.success && flash.success.length > 0) {%>
             new Noty({

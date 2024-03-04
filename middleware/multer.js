@@ -1,3 +1,4 @@
+//this multer package for the store image in db.
 const multer = require("multer");
 
 const storage = multer.diskStorage({

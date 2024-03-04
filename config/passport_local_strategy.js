@@ -25,7 +25,6 @@ passport.use(
         }
         
       }
-      // req.flash("success", "Logged in Successfully");
       return done(null, user);
     }
   )

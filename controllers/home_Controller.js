@@ -2,6 +2,8 @@ const Product = require("../models/product");
 const Cart = require("../models/cart");
 const User = require("../models/user");
 const Address = require("../models/address");
+
+//Rendering home page
 module.exports.home = async (req, res) => {
   try {
     const products = await Product.find({});
@@ -19,6 +21,7 @@ module.exports.home = async (req, res) => {
   }
 };
 
+//Rendering About page.
 module.exports.about = async (req, res) => {
   try {
     return res.render("about", {
@@ -29,9 +32,10 @@ module.exports.about = async (req, res) => {
     return;
   }
 };
+
+//Rendering Profile page.
 module.exports.profile = async (req, res) => {
   try {
-
     let user = await User.findById(req.user._id)
       .populate("cart")
       .populate({
@@ -61,6 +65,7 @@ module.exports.profile = async (req, res) => {
         subTotal = subTotal + price * quantity;
       }
     });
+
     let shippingFee = 100;
     if (subTotal === 0) {
       shippingFee = 0;
@@ -80,6 +85,8 @@ module.exports.profile = async (req, res) => {
     return;
   }
 };
+
+//Rendering Women page.
 module.exports.women = async (req, res) => {
   try {
     const products = await Product.find({});

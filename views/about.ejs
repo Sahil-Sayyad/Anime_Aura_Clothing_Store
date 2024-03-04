@@ -1,121 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>
-        <%= title %>
-      </title>
-      <link rel="icon" type="image/x-icon" href="/images/home/logo.png">
-      <link rel="stylesheet" href="/stylesheets/about.css" />
-      <link rel="stylesheet" href="/stylesheets/main.css" />
-      <link rel="stylesheet" href="/stylesheets/tailwind.css" />
-  </head>
 
-  <body>
-    <!-- navbar  -->
-    <nav class="navBar px-[5%]">
-      <div class="flex items-center justify-between my-4">
-        <div class="relative cursor-pointer bg-transparent z-10 text-white">
+<head>
+  <meta charset="UTF-8" />
+  <title>
+    <%= title %>
+  </title>
+  <link rel="icon" type="image/x-icon" href="/images/home/logo.png">
+  <link rel="stylesheet" href="/stylesheets/about.css" />
+  <link rel="stylesheet" href="/stylesheets/main.css" />
+  <link rel="stylesheet" href="/stylesheets/tailwind.css" />
+</head>
+
+<body>
+  <!-- navbar  -->
+  <nav class="navBar px-[5%]">
+    <div class="flex items-center justify-between my-4">
+      <div class="relative cursor-pointer bg-transparent z-10 text-white">
+        <div
+          class="relative flex flex-col justify-center z-10 pb-1 pr-3 font-noto font-semibold text-2xl border-b-4 border-r-4 rounded-xl">
+          <h1>Anime</h1>
+          <h1 class="text-secondary">. Aura</h1>
+        </div>
+
+        <div class="blob absolute top-0 left-0">
           <div
-            class="relative flex flex-col justify-center z-10 pb-1 pr-3 font-noto font-semibold text-2xl border-b-4 border-r-4 rounded-xl"
-          >
-            <h1>Anime</h1>
-            <h1 class="text-secondary">. Aura</h1>
+            class="absolute blur-xl top-0 -left-10 w-12 h-12 mix-blend-multiply bg-teal-500 opacity-80 rounded-full animate-blob delay-0">
           </div>
-
-          <div class="blob absolute top-0 left-0">
-            <div
-              class="absolute blur-xl top-0 -left-10 w-12 h-12 mix-blend-multiply bg-teal-500 opacity-80 rounded-full animate-blob delay-0"
-            ></div>
-            <div
-              class="absolute blur-xl top-0 left-20 w-12 h-12 mix-blend-multiply bg-gray-200 opacity-80 rounded-full animate-blob delay-5000"
-            ></div>
-            <div
-              class="absolute blur-xl top-10 left-5 w-12 h-12 mix-blend-multiply bg-secondary opacity-90 rounded-full animate-blob delay-2000"
-            ></div>
+          <div
+            class="absolute blur-xl top-0 left-20 w-12 h-12 mix-blend-multiply bg-gray-200 opacity-80 rounded-full animate-blob delay-5000">
           </div>
-        </div>
-
-        <div class="navLink text-dimWhite">
-          <div class="link">
-            <a class="" href="/">Home</a>
-            <a class="active" href="/about">About</a>
-            <a class="" href="/profile">
-              <ion-icon name="person-outline" />
-            </a>
-            <a class="" href="/product/cart">
-              <ion-icon name="bag-outline" />
-            </a>
+          <div
+            class="absolute blur-xl top-10 left-5 w-12 h-12 mix-blend-multiply bg-secondary opacity-90 rounded-full animate-blob delay-2000">
           </div>
         </div>
       </div>
-    </nav>
 
-    <div class="container-top">
-      <p>
-        Our ‘About Us’ page would like to thank you from the bottom of its heart
-        for visiting.
-        <br />
-        It doesn‘t get a lot of attention usually, as people are busy surfing
-        other, ‘cooler’ pages. The fact that you voluntarily decided to come
-        here means a lot. Honestly.
+      <div class="navLink text-dimWhite">
+        <div class="link">
+          <a class="" href="/">Home</a>
+          <a class="active" href="/about">About</a>
+          <a class="" href="/profile">
+            <ion-icon name="person-outline" />
+          </a>
+          <a class="" href="/product/cart">
+            <ion-icon name="bag-outline" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-top">
+    <p>
+      Our ‘About Us’ page would like to thank you from the bottom of its heart
+      for visiting.
+      <br />
+      It doesn‘t get a lot of attention usually, as people are busy surfing
+      other, ‘cooler’ pages. The fact that you voluntarily decided to come
+      here means a lot. Honestly.
+    </p>
+
+    <p></p>
+  </div>
+  <div class="container-middle">
+    <div class="about_img">
+      <img src="/images/login/about_img.avif" alt="not av" />
+    </div>
+    <div class="headline">
+      <h1 class="text-2xl font-extrabold font-comfortaa italic">
+        " We are Your Favourite, Online Store "
+      </h1>
+      <br />
+      <p class="text-xl font-thin">
+        Welcome to Anime Aura, where we blend passion with style! Our name
+        isn't just catchy, it's an ode to the deep connection anime fans share
+        with their favorite stories. At Anime Aura, we believe in embracing
+        your love for anime – no more mundane Mondays! Dive into a world of
+        vibrant, soulful clothing that tells your unique anime story. We're
+        not just a store; we're a community of like-minded anime enthusiasts.
+        Our collection is a carefully curated haven for fans, featuring
+        everything from iconic characters to trendy designs. Each piece is a
+        celebration of individuality, because, like anime characters, every
+        fan is special. From classic favorites to the latest trends, Anime
+        Aura offers a diverse range of merchandise that goes beyond fashion –
+        it's an experience. Join us on this exciting journey, where your love
+        for anime meets chic style, and help us spread the anime love! Let's
+        make every day an anime adventure.
       </p>
+    </div>
+  </div>
 
-      <p></p>
-    </div>
-    <div class="container-middle">
-      <div class="about_img">
-        <img src="/images/login/about_img.avif" alt="not av" />
-      </div>
-      <div class="headline">
-        <h1 class="text-2xl font-extrabold font-comfortaa italic">
-          " We are Your Favourite, Online Store "
-        </h1>
-        <br />
-        <p class="text-xl font-thin">
-          Welcome to Anime Aura, where we blend passion with style! Our name
-          isn't just catchy, it's an ode to the deep connection anime fans share
-          with their favorite stories. At Anime Aura, we believe in embracing
-          your love for anime – no more mundane Mondays! Dive into a world of
-          vibrant, soulful clothing that tells your unique anime story. We're
-          not just a store; we're a community of like-minded anime enthusiasts.
-          Our collection is a carefully curated haven for fans, featuring
-          everything from iconic characters to trendy designs. Each piece is a
-          celebration of individuality, because, like anime characters, every
-          fan is special. From classic favorites to the latest trends, Anime
-          Aura offers a diverse range of merchandise that goes beyond fashion –
-          it's an experience. Join us on this exciting journey, where your love
-          for anime meets chic style, and help us spread the anime love! Let's
-          make every day an anime adventure.
-        </p>
-      </div>
-    </div>
+  <div class="container-img pt-14">
+    <img src="/images/login/about_img.webp" width="890px" />
+  </div>
 
-    <div class="container-img pt-14">
-      <img src="/images/login/about_img.webp" width="890px" />
+  <div class="container-team">
+    <div class="box" id="box1">THE TEAM</div>
+    <div class="box" id="box2">
+      <p>
+        We're a group of trio who enjoy anime, cracking bad jokes, and being
+        slightly strange but mostly likable. We like what we do and don't take
+        ourselves too seriously. It's more than just selling anime-inspired
+        clothing; it's about sharing our enthusiasm for the extraordinary.
+        Join our anime-loving squad and immerse yourself in a world where fun
+        and fandom collide - after all, at Anime Aura, we take our clothing
+        seriously, but not ourselves!
+      </p>
     </div>
+  </div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
 
-    <div class="container-team">
-      <div class="box" id="box1">THE TEAM</div>
-      <div class="box" id="box2">
-        <p>
-          We're a group of trio who enjoy anime, cracking bad jokes, and being
-          slightly strange but mostly likable. We like what we do and don't take
-          ourselves too seriously. It's more than just selling anime-inspired
-          clothing; it's about sharing our enthusiasm for the extraordinary.
-          Join our anime-loving squad and immerse yourself in a world where fun
-          and fandom collide - after all, at Anime Aura, we take our clothing
-          seriously, but not ourselves!
-        </p>
-      </div>
-    </div>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-  </body>
 </html>

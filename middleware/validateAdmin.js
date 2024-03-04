@@ -1,3 +1,4 @@
+//this middleware for auntheticate admin.
 const jwt = require("jsonwebtoken");
 
 const validateToken = async (req, res, next) => {
