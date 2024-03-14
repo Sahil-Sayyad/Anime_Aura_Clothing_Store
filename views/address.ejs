@@ -1,101 +1,144 @@
 <html>
+  <head>
+    <title><%= title %></title>
+    <link rel="icon" type="image/x-icon" href="/images/home/logo.png" />
+    <link rel="stylesheet" href="/stylesheets/address.css" />
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/tailwind.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+  </head>
 
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel="icon" type="image/x-icon" href="/images/home/logo.png" />
-  <link rel="stylesheet" href="/stylesheets/sign_up_sign_in.css" />
-  <link rel="stylesheet" href="/stylesheets/main.css" />
-  <link rel="stylesheet" href="/stylesheets/tailwind.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
-</head>
+  <body>
+    <nav class="navBar px-[5%]">
+      <div class="flex items-center justify-between my-4">
+        <div class="relative cursor-pointer bg-transparent z-10 text-white">
+          <div
+            class="relative flex flex-col justify-center z-10 pb-1 pr-3 font-noto font-semibold text-2xl border-b-4 border-r-4 rounded-xl"
+          >
+            <h1>Anime</h1>
+            <h1 class="text-secondary">. Aura</h1>
+          </div>
 
-<body>
-  <nav class="navBar px-[5%]">
-    <div class="flex items-center justify-between my-4">
-      <div class="relative cursor-pointer bg-transparent z-10 text-white">
+          <div class="blob absolute top-0 left-0">
+            <div
+              class="absolute blur-xl top-0 -left-10 w-12 h-12 mix-blend-multiply bg-teal-500 opacity-80 rounded-full animate-blob delay-0"
+            ></div>
+            <div
+              class="absolute blur-xl top-0 left-20 w-12 h-12 mix-blend-multiply bg-gray-200 opacity-80 rounded-full animate-blob delay-5000"
+            ></div>
+            <div
+              class="absolute blur-xl top-10 left-5 w-12 h-12 mix-blend-multiply bg-secondary opacity-90 rounded-full animate-blob delay-2000"
+            ></div>
+          </div>
+        </div>
+
+        <div class="navLink text-dimWhite">
+          <div class="link">
+            <a class="" href="/">Home</a>
+            <a class="" href="/about">About</a>
+            <a class="active" href="/profile">
+              <ion-icon name="person-outline" />
+            </a>
+            <a class="" href="/product/cart">
+              <ion-icon name="bag-outline" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="h-[calc(100vh-104px)] px-2 sm:px-[5%] bglogin">
+      <div class="flex w-full h-full justify-center items-center">
+        <!-- center box -->
         <div
-          class="relative flex flex-col justify-center z-10 pb-1 pr-3 font-noto font-semibold text-2xl border-b-4 border-r-4 rounded-xl">
-          <h1>Anime</h1>
-          <h1 class="text-secondary">. Aura</h1>
-        </div>
+          class="w-full flex items-center justify-center sm:max-w-[800px] bg-blackAplha600 rounded-2xl overflow-hidden"
+        >
+          <div
+            class="w-full sm:w-2/3 h-full px-6 py-8 sm:px-8 font-poppins font-medium text-white"
+          >
+            <div class="flex flex-col gap-2">
+              <h1
+                class="w-fit text-[2.5rem] text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-lime-400 font-comfortaa font-extrabold"
+              >
+                Shipping Address
+              </h1>
 
-        <div class="blob absolute top-0 left-0">
-          <div
-            class="absolute blur-xl top-0 -left-10 w-12 h-12 mix-blend-multiply bg-teal-500 opacity-80 rounded-full animate-blob delay-0">
-          </div>
-          <div
-            class="absolute blur-xl top-0 left-20 w-12 h-12 mix-blend-multiply bg-gray-200 opacity-80 rounded-full animate-blob delay-5000">
-          </div>
-          <div
-            class="absolute blur-xl top-10 left-5 w-12 h-12 mix-blend-multiply bg-secondary opacity-90 rounded-full animate-blob delay-2000">
+              <form action="/product/save-address" method="post">
+                <div class="input-group">
+                  <label>Address</label>
+                  <input
+                    type="text"
+                    placeholder="Enter Apartment, Building etc"
+                    name="apartment"
+                    required
+                  />
+                </div>
+                <div class="input-group">
+                  <label>City</label>
+                  <input
+                    type="text"
+                    placeholder="Enter City"
+                    name="city"
+                    required
+                  />
+                </div>
+                <div class="input-group">
+                  <label>State</label>
+                  <input
+                    type="text"
+                    placeholder="Enter State"
+                    name="state"
+                    required
+                  />
+                </div>
+                <div class="input-group">
+                  <label>Country</label>
+                  <input
+                    type="text"
+                    placeholder="Enter Country"
+                    name="country"
+                    required
+                  />
+                </div>
+                <div class="input-group">
+                  <label>Pin Code</label>
+                  <input
+                    type="text"
+                    minlength="6" 
+                    maxlength="6"
+                    placeholder="Enter pin code"
+                    name="pincode"
+                    required
+                  />
+                </div>
+                <div class="input-group">
+                  <label>Phone</label>
+                  <input
+                    type="tel"
+                    minlength="10" 
+                    maxlength="10"
+                    placeholder="Enter Phone"
+                    required
+                    name="phone"
+                  />
+                </div>
+                <button
+                  class="bg-indigo-600 hover:bg-indigo-700 py-3 mt-4 px-6 rounded-md"
+                  type="submit"
+                >
+                  Save
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="navLink text-dimWhite">
-        <div class="link">
-          <a class="" href="/">Home</a>
-          <a class="" href="/about">About</a>
-          <a class="active" href="/profile">
-            <ion-icon name="person-outline" />
-          </a>
-          <a class="" href="/product/cart">
-            <ion-icon name="bag-outline" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main class="h-[calc(100vh-104px)] px-2 sm:px-[5%]">
-    <div class="flex w-full h-full justify-center items-center">
-      <!-- center box -->
-      <div class="w-full flex items-center sm:max-w-[800px] h-[710px] bg-blackAplha600 rounded-2xl overflow-hidden">
-        <div class="w-full sm:w-2/3 h-full px-6 py-8 sm:px-8 font-poppins font-medium text-white">
-          <div class="flex flex-col gap-2">
-            <h1
-              class="w-fit text-[2.5rem] text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-lime-400 font-comfortaa font-extrabold">
-              Shipping Address
-            </h1>
-
-            <form action="/product/save-address" method="post">
-              <div class="input-group">
-                <label>Apartment, Building, etc.</label>
-                <input type="text" placeholder="Enter Apartment, Building" name="apartment" required />
-              </div>
-              <div class="input-group">
-                <label>City</label>
-                <input type="text" placeholder="Enter City" name="city" required />
-              </div>
-              <div class="input-group">
-                <label>State</label>
-                <input type="text" placeholder="Enter State" name="state" required />
-              </div>
-              <div class="input-group">
-                <label>Country</label>
-                <input type="text" placeholder="Enter Country" name="country" required />
-              </div>
-              <div class="input-group">
-                <label>Pin Code</label>
-                <input type="text" placeholder="Enter pin code" name="pincode" required />
-              </div>
-              <div class="input-group">
-                <label>Phone</label>
-                <input type="text" placeholder="Enter Phone" required name="phone" />
-              </div>
-              <button class="bg-indigo-600 hover:bg-indigo-700 py-3 mt-4 px-6 rounded-md" type="submit">
-                Save
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <script>
+    </main>
+    <script>
       <% if (flash.success && flash.success.length > 0) {%>
       new Noty({
         theme: 'sunset',
@@ -115,9 +158,14 @@
         timeout: 3000
       }).show();
               <% } %>
-  </script>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-
+    </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>
