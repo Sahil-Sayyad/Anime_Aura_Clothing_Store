@@ -1,197 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-        <%= title %>
-      </title>
-      <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
-      <link rel="icon" type="image/x-icon" href="/images/home/logo.png"/>
-      <link rel="stylesheet" href="/stylesheets/main.css" />
-      <link rel="stylesheet" href="/stylesheets/tailwind.css" />
-  </head>
-  <body>
-    <!-- navbar  -->
-    <nav class="navBar px-[5%]">
-      <div class="flex items-center justify-between my-4">
-        <div class="relative cursor-pointer bg-transparent z-10 text-white">
-          <div
-            class="relative flex flex-col justify-center z-10 pb-1 pr-3 font-noto font-semibold text-2xl border-b-4 border-r-4 rounded-xl"
-          >
-            <h1>Anime</h1>
-            <h1 class="text-secondary">. Aura</h1>
-          </div>
 
-          <div class="blob absolute top-0 left-0">
-            <div
-              class="absolute blur-xl top-0 -left-10 w-12 h-12 mix-blend-multiply bg-teal-500 opacity-80 rounded-full animate-blob delay-0"
-            ></div>
-            <div
-              class="absolute blur-xl top-0 left-20 w-12 h-12 mix-blend-multiply bg-gray-200 opacity-80 rounded-full animate-blob delay-5000"
-            ></div>
-            <div
-              class="absolute blur-xl top-10 left-5 w-12 h-12 mix-blend-multiply bg-secondary opacity-90 rounded-full animate-blob delay-2000"
-            ></div>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="/images/home/logo.png" />
+  <link rel="stylesheet" href="/stylesheets/main.css" />
+  <link rel="stylesheet" href="/stylesheets/tailwind.css" />
+</head>
+
+<body>
+  <!-- navbar  -->
+  <nav class="navBar px-[5%]">
+    <div class="flex items-center justify-between my-4">
+      <div class="relative cursor-pointer bg-transparent z-10 text-white">
+        <div
+          class="relative flex flex-col justify-center z-10 pb-1 pr-3 font-noto font-semibold text-2xl border-b-4 border-r-4 rounded-xl">
+          <h1>Anime</h1>
+          <h1 class="text-secondary">. Aura</h1>
         </div>
 
-        <div class="navLink text-dimWhite">
-          <div class="link">
-            <a class="" href="/">Home</a>
-            <a class="" href="/about">About</a>
-            <a class="" href="/profile">
-              <ion-icon name="person-outline" />
-            </a>
-            <a class="" href="/product/cart">
-              <ion-icon name="bag-outline" />
-            </a>
+        <div class="blob absolute top-0 left-0">
+          <div
+            class="absolute blur-xl top-0 -left-10 w-12 h-12 mix-blend-multiply bg-teal-500 opacity-80 rounded-full animate-blob delay-0">
+          </div>
+          <div
+            class="absolute blur-xl top-0 left-20 w-12 h-12 mix-blend-multiply bg-gray-200 opacity-80 rounded-full animate-blob delay-5000">
+          </div>
+          <div
+            class="absolute blur-xl top-10 left-5 w-12 h-12 mix-blend-multiply bg-secondary opacity-90 rounded-full animate-blob delay-2000">
           </div>
         </div>
       </div>
-    </nav>
 
-    <main class="text-gray-50 bg-primary-color px-[5%] py-16">
+      <div class="navLink text-dimWhite">
+        <div class="link">
+          <a class="" href="/">Home</a>
+          <a class="" href="/about">About</a>
+          <a class="" href="/profile">
+            <ion-icon name="person-outline" />
+          </a>
+          <a class="" href="/product/cart">
+            <ion-icon name="bag-outline" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="text-gray-50 bg-primary-color px-[5%] py-16">
     <form action="/product/addtocart" method="POST">
 
       <input type="hidden" value="<%=product._id %>" name="id">
-      <div
-        class="product flex flex-col items-center space-y-6 lg:flex-row lg:space-y-0 justify-around"
-        >
+      <div class="product flex flex-col items-center space-y-6 lg:flex-row lg:space-y-0 justify-around">
         <!-- product image -->
         <section class="lg:w-3/12">
-          <img
-          class="rounded-md"
-            src="<%= product.image %>"
-            alt=""
-          />
+          <img class="rounded-md" src="/<%= product.image %>" alt="" />
         </section>
 
         <!-- product details -->
-        <section
-          class="poppins-medium flex flex-col space-y-4 w-full lg:w-6/12 bg-zinc-900 p-5 md:p-10 rounded-xl"
-          >
-          <h2 class="text-gray-400"> <%= product.title %></h2>
-          <h1 class="text-3xl font-semibold"><%= product.category %></h1>
-          <span class="text-sky-200 text-3xl"
-          ><b class="text-sky-500">Rs. </b><%= product.price %></span
-          >
+        <section class="poppins-medium flex flex-col space-y-4 w-full lg:w-6/12 bg-zinc-900 p-5 md:p-10 rounded-xl">
+          <h2 class="text-gray-400">
+            <%= product.title %>
+          </h2>
+          <h1 class="text-3xl font-semibold">
+            <%= product.category %>
+          </h1>
+          <span class="text-sky-200 text-3xl"><b class="text-sky-500">Rs. </b>
+            <%= product.price %>
+          </span>
 
           <!-- select size -->
           <div>
             <h1 class="text-xl text-gray-400 mb-2">Select Size</h1>
             <div class="flex font-semibold items-center gap-4 cursor-pointer">
-              <div
-              id="s"
-                onclick="onSizeChange('s')"
-                class="flex justify-center items-center w-16 h-12 rounded-xl border-lime-200/80 border-2 size"
-                >
+              <div id="s" onclick="onSizeChange('s')"
+                class="flex justify-center items-center w-16 h-12 rounded-xl border-lime-200/80 border-2 size">
                 S
               </div>
-              <div
-                id="m"
-                onclick="onSizeChange('m')"
-                class="flex justify-center items-center w-16 h-12 rounded-xl border-lime-200/80 border-2 size"
-              >
+              <div id="m" onclick="onSizeChange('m')"
+                class="flex justify-center items-center w-16 h-12 rounded-xl border-lime-200/80 border-2 size">
                 M
               </div>
-              <div
-                id="l"
-                onclick="onSizeChange('l')"
-                class="flex justify-center items-center w-16 h-12 rounded-xl border-lime-200/80 border-2 size"
-              >
+              <div id="l" onclick="onSizeChange('l')"
+                class="flex justify-center items-center w-16 h-12 rounded-xl border-lime-200/80 border-2 size">
                 L
               </div>
-              <div
-                id="xl"
-                onclick="onSizeChange('xl')"
-                class="flex justify-center items-center w-16 h-12 rounded-xl border-lime-200/80 border-2 size"
-              >
-              XL
+              <div id="xl" onclick="onSizeChange('xl')"
+                class="flex justify-center items-center w-16 h-12 rounded-xl border-lime-200/80 border-2 size">
+                XL
               </div>
             </div>
           </div>
           <!-- selct size end -->
 
           <!-- quantity -->
-          
+
           <div>
             <h1 class="text-xl text-gray-400 mb-2">Quantity</h1>
-            <input
-              class="text-gray-800 text-center w-16 text-xl rounded-md p-3 outline-none"
-              type="number"
-              max="10"
-              min="1"
-              name="quantity"
-              required
-              />
-            </div>
-            
-            <!-- quantity end-->
+            <input class="text-gray-800 text-center w-16 text-xl rounded-md p-3 outline-none" type="number" max="10"
+              value="1" min="1" name="quantity" required />
+          </div>
+
+          <!-- quantity end-->
 
           <!-- add to cart btn -->
           <div
-            class="w-56 py-3 px-3 flex items-center justify-around hover:scale-95 ease-linear bg-gradient-to-tr from-lime-300 to-indigo-400 rounded-md cursor-pointer"
-          >
+            class="w-56 py-3 px-3 flex items-center justify-around hover:scale-95 ease-linear bg-gradient-to-tr from-lime-300 to-indigo-400 rounded-md cursor-pointer">
             <ion-icon class="text-gray-800" name="cart-outline"></ion-icon>
-              <button class="text-gray-800 text-2xl font-semibold">
-                Add to Cart
-              </button>
-           
+            <button class="text-gray-800 text-2xl font-semibold">
+              Add to Cart
+            </button>
+
           </div>
-        </form>
-          <!-- add to cart btn end-->
+    </form>
+    <!-- add to cart btn end-->
 
-          <!-- product description -->
-          <div>
-            <h1 class="text-3xl text-emerald-300 mt-4 mb-1">Product Details</h1>
-            <hr class="w-[10%] mb-4" />
+    <!-- product description -->
+    <div>
+      <h1 class="text-3xl text-emerald-300 mt-4 mb-1">Product Details</h1>
+      <hr class="w-[10%] mb-4" />
 
-            <div class="flex flex-col space-y-3 leading-9">
-              <div>
-                <h2 class="text-gray-100 text-xl">Material & Care</h2>
-                <p class="text-gray-300 text-lg">
-                  60% Cotton 40% Polyester Machine Wash
-                </p>
-              </div>
+      <div class="flex flex-col space-y-3 leading-9">
+        <div>
+          <h2 class="text-gray-100 text-xl">Material & Care</h2>
+          <p class="text-gray-300 text-lg">
+            60% Cotton 40% Polyester Machine Wash
+          </p>
+        </div>
 
-              <div>
-                <h2 class="text-gray-100 text-xl">Country of Origin</h2>
-                <p class="text-gray-300 text-lg">India</p>
-              </div>
-            </div>
-          </div>
-          <!-- product description end-->
-        </section>
+        <div>
+          <h2 class="text-gray-100 text-xl">Country of Origin</h2>
+          <p class="text-gray-300 text-lg">India</p>
+        </div>
       </div>
-    </main>
-    <script>
-      <% if(flash.success && flash.success.length > 0){%>
-                  new Noty({
-                  theme:'sunset',
-                  text: '<h3><%= flash.success%></h3>',
-                  type:'success',
-                  layout:'topRight',
-                  timeout:3000
-              }).show();
+    </div>
+    <!-- product description end-->
+    </section>
+    </div>
+  </main>
+  <script>
+      <% if (flash.success && flash.success.length > 0) {%>
+      new Noty({
+        theme: 'sunset',
+        text: '<h3><%= flash.success%></h3>',
+        type: 'success',
+        layout: 'topRight',
+        timeout: 3000
+      }).show();
               <% } %>
 
-              <% if(flash.error && flash.error.length > 0){%>
-                new Noty({
-                  theme:'sunset',
-                  text: '<%= flash.error%>',
-                  type:'error',
-                  layout:'topRight',
-                  timeout:3000
-                }).show();
+              <% if (flash.error && flash.error.length > 0) {%>
+      new Noty({
+        theme: 'sunset',
+        text: '<%= flash.error%>',
+        type: 'error',
+        layout: 'topRight',
+        timeout: 3000
+      }).show();
               <% } %>
-    </script>
-    <script src="/javascripts/product.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  </body>
+  </script>
+  <script src="/javascripts/product.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
 </html>
