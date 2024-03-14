@@ -116,13 +116,12 @@ module.exports.createProduct = async (req, res) => {
   try {
     const { title, category, price, shoppingCategory } = req.body;
     let path = req.file.path;
-    let newPath = path.replace("public", "");
     const product = await Product.create({
       title,
       category,
       price,
       shoppingCategory,
-      image: newPath,
+      image: path,
     });
     req.flash("success", "Product Added Successfully");
     return res.redirect("/admin/product");
