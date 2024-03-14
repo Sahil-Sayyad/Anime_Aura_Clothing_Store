@@ -7,7 +7,6 @@ const Address = require("../models/address");
 module.exports.home = async (req, res) => {
   try {
     const products = await Product.find({});
-
     if (products) {
       return res.render("home", {
         title: "Anime Aura",
@@ -37,14 +36,19 @@ module.exports.about = async (req, res) => {
 module.exports.profile = async (req, res) => {
   try {
     let user = await User.findById(req.user._id)
+      .populate("order")
       .populate({
         path: "order",
         populate: {
-          path: "product",
-          module: "Product",
+          path: "billing",
+          populate: {
+            path: "product",
+            module: "Product",
+          }
         },
       })
       .populate("address");
+
     let address = await Address.find({});
     let length = 0;
     let addressinfo;
@@ -54,15 +58,15 @@ module.exports.profile = async (req, res) => {
         length = Object.keys(addressinfo).length;
       }
     }
-   let noShow = false;
-   let subTotal;
+    let noShow = false;
+    let subTotal;
     if (user && user.order) {
-         noShow = true;
+      noShow = true;
       user.order.forEach(order => {
 
-        if (order.product) {
-          order.product.forEach(product => {
-
+        if (order.billing.product) {
+          order.billing.product.forEach(product => {
+          
           });
         }
       });
