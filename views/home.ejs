@@ -21,10 +21,10 @@
     <div class="topnavbar">
       <div class="category">
         <button onclick="onButtonChange('men')" id="men" class="gender">
-          <a href="/">MAN</a> 
+          <a href="/">MAN</a>
         </button>
         <button onclick="onButtonChange('women')" id="women" class="gender">
-         <a href="/women"> WOMEN </a>
+          <a href="/women"> WOMEN </a>
         </button>
       </div>
     </div>
@@ -82,49 +82,54 @@
         </div>
         <div class="item">
           <img src="/images/slider/4.webp" alt="" />
-          <div class="item">
-            <img src="/images/slider/5.webp" alt="" />
-          </div>
-          <div class="item">
-            <img src="/images/slider/6.png" alt="" />
-          </div>
-          <div class="item">
-            <img src="/images/slider/7.png" alt="" />
-          </div>
-          <div class="item">
-            <img src="/images/slider/8.webp" alt="" />
-          </div>
-
         </div>
-
-        <!-- thumnail -->
-
-        <div class="thumbnail">
-
-          <img src="/images/slider/2.webp" alt="" class="item" />
-          <img src="/images/slider/3.webp" alt="" class="item" />
-          <img src="/images/slider/4.webp" alt="" class="item" />
-          <img src="/images/slider/5.webp" alt="" class="item" />
-          <img src="/images/slider/6.png" alt="" class="item" />
-          <img src="/images/slider/7.png" alt="" class="item" />
-          <img src="/images/slider/8.webp" alt="" class="item" />
-          <img src="/images/slider/1.webp" alt="" class="item" />
-
+        <div class="item">
+          <img src="/images/slider/5.webp" alt="" />
         </div>
-
-        <!-- animation timer -->
-        <div class="timer"></div>
-
-        <!-- arrows for slider -->
-        <div class="arrows">
-
-          <button id="prev">
-            <</button>
-              <button id="next">></button>
-
+        <div class="item">
+          <img src="/images/slider/6.png" alt="" />
+        </div>
+        <div class="item">
+          <img src="/images/slider/7.png" alt="" />
+        </div>
+        <div class="item">
+          <img src="/images/slider/8.webp" alt="" />
         </div>
 
       </div>
+
+      <!-- thumnail -->
+
+      <div class="thumbnail">
+
+        <img src="/images/slider/2.webp" alt="" class="item" />
+        <img src="/images/slider/3.webp" alt="" class="item" />
+        <img src="/images/slider/4.webp" alt="" class="item" />
+        <img src="/images/slider/5.webp" alt="" class="item" />
+        <img src="/images/slider/6.png" alt="" class="item" />
+        <img src="/images/slider/7.png" alt="" class="item" />
+        <img src="/images/slider/8.webp" alt="" class="item" />
+        <img src="/images/slider/1.webp" alt="" class="item" />
+
+      </div>
+
+      <!-- animation timer -->
+      <div class="timer"></div>
+
+      <!-- arrows for slider -->
+      <div class="arrows">
+
+        <button id="prev" class=" flex items-center justify-center">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+
+        <button id="next" class=" flex items-center justify-center">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+
+      </div>
+
+    </div>
     </div>
     <!-- product addition karra hu -->
 
@@ -135,26 +140,27 @@
 
     <div id="pro-wrapper" class="pro-wrapper flex flex-wrap justify-evenly w-full gap-14">
       <% products.forEach(product=> {%>
-        <% if(product.shoppingCategory === 'Men') {%>
-        <a href="/product/show/productId=<%=product.id%>"><div class="pro-card w-[290px] h-[400px] bg-gray-100 p-3 rounded-md">
-          <img class="h-[290px] rounded-xl w-full shadow-lg shadow-gray-400 object-cover" src="<%= product.image %>"
-            alt="pro1" />
-          <div class="mt-4">
-            <h1 class="text-zinc-800 font-semibold">
-              <%= product.title %>
-            </h1>
+        <% if(product.shoppingCategory==='Men' ) {%>
+          <a href="/product/show/productId=<%=product.id%>">
+            <div class="pro-card w-[290px] h-[400px] bg-gray-100 p-3 rounded-md">
+              <img class="h-[290px] rounded-xl w-full shadow-lg shadow-gray-400 object-cover" src="/<%= product.image %>"
+                alt="pro1" />
+              <div class="mt-4">
+                <h1 class="text-zinc-800 font-semibold">
+                  <%= product.title %>
+                </h1>
 
-            <h2 class="text-gray-500">
-              <%= product.category %>
-            </h2>
-            <span class="text-teal-600 text-xl font-bold"><b class="text-gray-600">Rs. </b>
-              <%= product.price %>
-            </span>
-          </div>
-        </div>
-      </a>
-      <%}%>
-        <%});%>
+                <h2 class="text-gray-500">
+                  <%= product.category %>
+                </h2>
+                <span class="text-teal-600 text-xl font-bold"><b class="text-gray-600">Rs. </b>
+                  <%= product.price %>
+                </span>
+              </div>
+            </div>
+          </a>
+          <%}%>
+            <%});%>
     </div>
   </main>
 
@@ -164,4 +170,5 @@
 <script src="/javascripts/home.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </html>
