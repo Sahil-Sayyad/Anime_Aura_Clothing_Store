@@ -1,145 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title %></title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="/images/home/logo.png" />
-    <link rel="stylesheet" href="/stylesheets/main.css" />
-    <link rel="stylesheet" href="/stylesheets/tailwind.css" />
-  </head>
 
-  <body>
-    <!-- navbar  -->
-    <nav class="navBar px-[5%]">
-      <div class="flex items-center justify-between my-4">
-        <div class="relative cursor-pointer bg-transparent z-10 text-white">
-          <div
-            class="relative flex flex-col justify-center z-10 pb-1 pr-3 font-noto font-semibold text-2xl border-b-4 border-r-4 rounded-xl"
-          >
-            <h1>Anime</h1>
-            <h1 class="text-secondary">. Aura</h1>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="/images/home/logo.png" />
+  <link rel="stylesheet" href="/stylesheets/main.css" />
+  <link rel="stylesheet" href="/stylesheets/tailwind.css" />
+</head>
 
-          <div class="blob absolute top-0 left-0">
-            <div
-              class="absolute blur-xl top-0 -left-10 w-12 h-12 mix-blend-multiply bg-teal-500 opacity-80 rounded-full animate-blob delay-0"
-            ></div>
-            <div
-              class="absolute blur-xl top-0 left-20 w-12 h-12 mix-blend-multiply bg-gray-200 opacity-80 rounded-full animate-blob delay-5000"
-            ></div>
-            <div
-              class="absolute blur-xl top-10 left-5 w-12 h-12 mix-blend-multiply bg-secondary opacity-90 rounded-full animate-blob delay-2000"
-            ></div>
-          </div>
-        </div>
-
-        <div class="navLink text-dimWhite">
-          <div class="link">
-            <a class="" href="/">Home</a>
-            <a class="" href="/about">About</a>
-            <a class="" href="/profile">
-              <ion-icon name="person-outline" />
-            </a>
-            <a class="" href="/product/cart">
-              <ion-icon name="bag-outline" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <main class="px-[5%] mt-24 font-comfortaa text-white max-w-[1700px]">
-      <section class="lg:w-3/12">
-        <img class="rounded-md" src="/images/admin/profile.png" alt="" />
-      </section>
-      <br />
-      <div
-        class="w-56 py-3 px-3 flex items-center justify-around hover:scale-95 ease-linear bg-gradient-to-tr from-lime-300 to-indigo-400 rounded-md cursor-pointer"
-      >
-        <button class="text-gray-800 text-2xl font-semibold">
-          <a href="/user/sign-out">Sign Out</a>
-        </button>
-      </div>
-      <br />
-      <br />
-      <hr />
-      <br />
-      <h1
-        class="w-fit text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-400"
-      >
-        Order History
-      </h1>
-      <br />
-      <hr />
-      <%if(user && user.order) { %> <% user.order.forEach(order => { %>
-        <div>
-
-          <p>
-            
-            <h4>Order Id : <%= order._id%></h4>
-            <h4>Name : <%= order.customername%></h4>
-            <h4>Order Date : <%= order.orderdate%></h4>
-            <h4>Total Amount : <%= order.totalAmount%></h4>
-          </p>
-        </div>
-      <div
-        id="wrapper"
-        class="flex flex-wrap flex-col gap-10 xl:flex-row xl:gap-14 justify-between mt-10"
-      >
+<body>
+  <!-- navbar  -->
+  <nav class="navBar px-[5%]">
+    <div class="flex items-center justify-between my-4">
+      <div class="relative cursor-pointer bg-transparent z-10 text-white">
         <div
-          id="cart-wrapper"
-          class="left-cart-section flex flex-col gap-10 h-[600px] overflow-y-scroll no-scrollbar flex-grow bg-zinc-950"
-        >
-          <%if (order.product) {%> <% order.product.forEach(product=> { %>
+          class="relative flex flex-col justify-center z-10 pb-1 pr-3 font-noto font-semibold text-2xl border-b-4 border-r-4 rounded-xl">
+          <h1>Anime</h1>
+          <h1 class="text-secondary">. Aura</h1>
+        </div>
 
-          <div class="card flex items-center">
-            <img
-              class="h-36 object-cover rounded-xl"
-              src="<%=product.image%>"
-              alt="product"
-            />
+        <div class="blob absolute top-0 left-0">
+          <div
+            class="absolute blur-xl top-0 -left-10 w-12 h-12 mix-blend-multiply bg-teal-500 opacity-80 rounded-full animate-blob delay-0">
+          </div>
+          <div
+            class="absolute blur-xl top-0 left-20 w-12 h-12 mix-blend-multiply bg-gray-200 opacity-80 rounded-full animate-blob delay-5000">
+          </div>
+          <div
+            class="absolute blur-xl top-10 left-5 w-12 h-12 mix-blend-multiply bg-secondary opacity-90 rounded-full animate-blob delay-2000">
+          </div>
+        </div>
+      </div>
 
-            <div
-              class="flex flex-col gap-3 md:flex-row md:gap-14 w-full px-4 md:px-6 justify-between"
-            >
-              <div class="flex flex-col gap-2 font-poppins font-medium">
-                <h1 class="max-w-[400px] md:text-xl"><%= product.title%></h1>
-                <h2 class="text-zinc-500"><%= product.category%></h2>
+      <div class="navLink text-dimWhite">
+        <div class="link">
+          <a class="" href="/">Home</a>
+          <a class="" href="/about">About</a>
+          <a class="" href="/profile">
+            <ion-icon name="person-outline" />
+          </a>
+          <a class="" href="/product/cart">
+            <ion-icon name="bag-outline" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-                <!-- Quantity -->
-                <div
-                  class="flex items-center gap-4 text-zinc-500 cursor-pointer"
-                >
-                  <h1 class="font-comfortaa text-gray-200">
-                    Quantity : <%= product.quantity%>
-                  </h1>
-                </div>
-              </div>
+  <main class="px-[5%] mt-24 font-comfortaa text-white max-w-[1400px]">
+    <section class="flex font-poppins items-center justify-between bg-zinc-900 py-2 px-2 md:py-5 md:px-5 rounded-xl">
 
-              <span class="text-xl md:text-2xl font-poppins font-medium">
-                Rs.
-                <b id="total" class="text-2xl md:text-3xl text-lime-400">
-                  <%= product.price%>
-                </b>
+      <div class=" flex items-center gap-10">
+        <img class="rounded-full w-32 h-32" src="/images/admin/profile.jpg" alt="" />
+
+        <%if(user && user.address) { %>
+          <div class=" flex flex-col text-lg">
+
+            <div class=" flex items-center gap-4">
+              <span class=" font-semibold text-sky-500">Name : </span>
+              <span>
+                <%= user.name%>
               </span>
             </div>
-            <!-- <div
-              class="text-sm h-full rounded-r-md hover:bg-red-600 cursor-pointer"
-            >
-              <a href="/product/remove/<%= product._id%>"
-                ><ion-icon name="close-outline"
-              /></a>
-            </div> -->
+            <div class=" flex items-center gap-4">
+              <span class=" font-semibold text-sky-500">Email : </span>
+              <span>
+                <%= user.email%>
+              </span>
+            </div>
+
+            <div class=" flex items-center gap-4">
+              <span class=" font-semibold text-sky-500">Address : </span>
+              <span>
+                <%= user.address.apartment%>, <%= user.address.city%> - <%= user.address.pincode%>
+              </span>
+            </div>
+
+
+            <div class=" flex items-center gap-4">
+              <span class=" font-semibold text-sky-500">Contact no : </span>
+              <span>
+                <%= user.address.phone%>
+              </span>
+            </div>
           </div>
-          <%})%> <% } %> <%})%><% } %>
+          <%}%>
+
+      </div>
+
+
+      <button
+        class="text-gray-800 text-xl py-2 px-4 font-semibold hover:scale-95 ease-linear bg-gradient-to-tr from-lime-500 to-indigo-500 rounded-md cursor-pointer">
+        <a href="/user/sign-out">Sign Out</a>
+      </button>
+    </section>
+
+    <br>
+    <br>
+
+    <h1
+      class="w-fit text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-400">
+      Order History
+    </h1>
+    <br />
+    <%if(user && user.order) { %>
+      <% user.order.forEach(order=> { %>
+        <div class=" my-10 bg-zinc-900 rounded-xl py-3 px-3 md:py-10 md:px-10">
+          <div>
+            <div class=" flex items-center gap-5">
+
+              <div class=" flex gap-3 text-orange-400">
+                <span class=" font-extrabold ">Order Id : </span>
+                <span>
+                  <%= order._id%>
+                </span>
+              </div>
+
+              <div class=" flex gap-3">
+                <span class=" font-extrabold text-sky-400">Purchased date : </span>
+                <span>
+                  <%= order.orderdate%>
+                </span>
+              </div>
+
+              <div class=" flex gap-3">
+                <span class=" font-extrabold text-sky-400">Price : </span>
+                <span>
+                  Rs. <%= order.totalAmount%>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div id="wrapper" class="flex flex-wrap flex-col gap-10 xl:flex-row xl:gap-14 justify-between mt-10">
+            <div id="cart-wrapper" class="left-cart-section flex flex-col gap-10 no-scrollbar flex-grow">
+              <%if (order.billing) {%>
+                <% order.billing.forEach( item=> { %>
+
+                  <div class="card flex items-center max-w-[1000px]">
+                    <img class="h-36 object-cover rounded-xl" src="<%=item.product.image%>" alt="product" />
+
+                    <div class="flex flex-col gap-3 md:flex-row md:gap-14 w-full px-4 md:px-6 justify-between">
+                      <div class="flex flex-col gap-2 font-poppins font-medium">
+                        <h1 class="max-w-[400px] md:text-xl">
+                          <%= item.product.title%>
+                        </h1>
+                        <h2 class="text-zinc-500">
+                          <%= item.product.category%>
+                        </h2>
+
+                        <!-- Quantity -->
+                        <div class="flex items-center gap-4 text-zinc-500 cursor-pointer">
+                          <h1 class="font-comfortaa font-semibold text-indigo-400">
+                            Quantity : <%= item.quantity%>
+                          </h1>
+                        </div>
+                      </div>
+
+                      <span class="text-xl md:text-2xl font-poppins font-medium">
+                        Rs.
+                        <b id="total" class="text-2xl md:text-3xl text-lime-400">
+                          <%= item.product.price%>
+                        </b>
+                      </span>
+                    </div>
+                  </div>
+
+                  <%})%>
+                    <%}%>
+            </div>
+          </div>
         </div>
-        <% if(noShow) {%>
+
+        <%})%>
+          <%}%>
+            <!-- <% if(noShow) {%>
         <div
           id="summary"
           class="right-cart-section mb-10 flex flex-col gap-4 w-full max-w-[400px] xl:pl-[5%]"
@@ -189,38 +229,32 @@
             <p>Thank you for choosing Anime Aura.</p>
           </div>
         </div>
-      </div>
-    </main>
-    <%}%>
-    <script>
+        <%}%> -->
+  </main>
+  <script>
       <% if (flash.success && flash.success.length > 0) {%>
-            new Noty({
-                theme: 'sunset',
-                text: '<h3><%= flash.success%></h3>',
-                type: 'success',
-                layout: 'topRight',
-                timeout: 3000
-            }).show();
+      new Noty({
+        theme: 'sunset',
+        text: '<h3><%= flash.success%></h3>',
+        type: 'success',
+        layout: 'topRight',
+        timeout: 3000
+      }).show();
               <% } %>
 
               <% if (flash.error && flash.error.length > 0) {%>
-            new Noty({
-                theme: 'sunset',
-                text: '<%= flash.error%>',
-                type: 'error',
-                layout: 'topRight',
-                timeout: 3000
-            }).show();
+      new Noty({
+        theme: 'sunset',
+        text: '<%= flash.error%>',
+        type: 'error',
+        layout: 'topRight',
+        timeout: 3000
+      }).show();
               <% } %>
-    </script>
-    <script src="/javascripts/product.js"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-  </body>
+  </script>
+  <script src="/javascripts/product.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
 </html>
