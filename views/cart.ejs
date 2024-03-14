@@ -9,10 +9,8 @@
   <link rel="icon" type="image/x-icon" href="/images/home/logo.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
-  <link rel="stylesheet" href="/stylesheets/sign_up_sign_in.css" />
   <link rel="stylesheet" href="/stylesheets/main.css" />
   <link rel="stylesheet" href="/stylesheets/tailwind.css" />
-  <link rel="stylesheet" href="/stylesheets/cart.css" />
 </head>
 
 <body>
@@ -61,137 +59,150 @@
     </h1>
     <% if(noShow){ %>
       <%if(cartinfo.length> 0) { %>
-      <div id="wrapper" class="flex flex-wrap flex-col gap-10 xl:flex-row xl:gap-14 justify-between mt-10">
-        <div id="cart-wrapper"
-          class="left-cart-section flex flex-col gap-10 h-[600px] overflow-y-scroll no-scrollbar flex-grow bg-zinc-950">
-          <% cartinfo.forEach(item=> { %>
+        <div id="wrapper" class="flex flex-wrap flex-col gap-10 xl:flex-row xl:gap-14 justify-between mt-10">
+          <div id="cart-wrapper"
+            class="left-cart-section flex flex-col gap-10 h-[600px] overflow-y-scroll no-scrollbar flex-grow bg-zinc-950">
+            <% cartinfo.forEach(item=> { %>
 
-            <div class="card flex items-center">
-              <img class="h-36 object-cover rounded-xl" src="<%=item.product.image%>" alt="product" />
+              <div class="card flex items-center bg-zinc-900/50 rounded-lg">
+                <img class="h-36 scale-[0.8] object-cover rounded-lg" src="<%=item.product.image%>" alt="product" />
 
-              <div class="flex flex-col gap-3 md:flex-row md:gap-14 w-full px-4 md:px-6 justify-between">
-                <div class="flex flex-col gap-2 font-poppins font-medium">
-                  <h1 class="max-w-[400px] md:text-xl">
-                    <%= item.product.title%>
-                  </h1>
-                  <h2 class="text-zinc-500">
-                    <%= item.product.category%>
-                  </h2>
-
-                  <!-- Quantity -->
-                  <div class="flex items-center gap-4 text-zinc-500 cursor-pointer">
-                    <h1 class="font-comfortaa text-gray-200">Quantity : <%= item.quantity%>
+                <div class="flex flex-col gap-3 md:flex-row md:gap-14 w-full px-4 md:px-6 justify-between">
+                  <div class="flex flex-col gap-2 font-poppins font-medium">
+                    <h1 class="max-w-[400px] md:text-xl">
+                      <%= item.product.title%>
                     </h1>
+                    <h2 class="text-zinc-500">
+                      <%= item.product.category%>
+                    </h2>
+
+                    <!-- Quantity -->
+                    <div class="flex items-center gap-4 text-zinc-500 cursor-pointer">
+                      <h1 class="font-comfortaa text-blue-300">
+                        Quantity : <%= item.quantity%>
+                      </h1>
+                    </div>
                   </div>
+
+                  <span class="text-xl md:text-2xl font-poppins font-medium">
+                    Rs.
+                    <b id="total" class="text-2xl md:text-3xl text-lime-400">
+                      <%= item.product.price%>
+                    </b>
+                  </span>
                 </div>
-
-                <span class="text-xl md:text-2xl font-poppins font-medium">
-                  Rs.
-                  <b id="total" class="text-2xl md:text-3xl text-lime-400">
-                    <%= item.product.price%>
-                  </b>
-                </span>
+                <div class="text-sm h-full rounded-r-md hover:bg-red-600 cursor-pointer">
+                  <a href="/product/remove/<%= item._id%>"><ion-icon name="close-outline" /></a>
+                </div>
               </div>
-              <div class="text-sm h-full rounded-r-md hover:bg-red-600 cursor-pointer">
-                <a href="/product/remove/<%= item._id%>"><ion-icon name="close-outline" /></a>
+              <%})%>
+          </div>
+
+          <div id="summary" class="right-cart-section mb-10 flex flex-col gap-4 w-full max-w-[400px] xl:pl-[5%]">
+            <h1
+              class="w-fit font-extrabold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-indigo-400">
+              Summary
+            </h1>
+
+            <div class="font-poppins font-medium text-zinc-400">
+              <div class="my-2 flex items-center justify-between text-2xl">
+                <span>SubTotal:</span>
+                <span>Rs. <b id="subTotal">
+                    <%=subTotal%>
+                  </b></span>
               </div>
-            </div>
-            <%})%>
-        </div>
+              <div class="my-2 flex items-center justify-between text-2xl">
+                <span>Shipping fee:</span>
+                <span>Rs. <b>100</b></span>
+              </div>
+              <hr />
+              <div class="my-3 font-comfortaa">
+                <h1 class="text-gray-200">Delivery</h1>
+                <p>Depends upon your location usually take 3-5 bussiness Days.</p>
+              </div>
+              <div class="my-2 flex items-center justify-between text-3xl">
+                <span>Total</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-400">Rs. <b
+                    id="total">
+                    <%=subTotal + shippingFee%>
+                  </b></span>
+              </div>
+              <% if (length> 0){%>
+                <br />
+                <hr />
+                <br />
+                <p class="text-gray-300">Shipping address</p>
+                <br />
+                <p>
+                  <%=addressinfo.apartment%>, <%=addressinfo.city%>,
+                      <%=addressinfo.state%>, <%=addressinfo.country%> -
+                          <%=addressinfo.pincode%>
+                </p>
+                <br />
+                <a class="text-indigo-400 underline decoration-2 underline-offset-2 hover:text-sky-200"
+                  href="/product/add-address">Change Address
+                </a>
+                <br />
 
-        <div id="summary" class="right-cart-section mb-10 flex flex-col gap-4 w-full max-w-[400px] xl:pl-[5%]">
-          <h1
-            class="w-fit font-extrabold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-indigo-400">
-            Summary
-          </h1>
+                <br />
 
-          <div class="font-poppins font-medium text-zinc-400">
-            <div class="my-2 flex items-center justify-between text-2xl">
-              <span>SubTotal:</span>
-              <span>Rs. <b id="subTotal">
-                  <%=subTotal%>
-                </b></span>
-            </div>
-            <div class="my-2 flex items-center justify-between text-2xl">
-              <span>Shipping fee:</span>
-              <span>Rs. <b>100</b></span>
-            </div>
-            <hr />
-            <div class="my-3 font-comfortaa">
-              <h1 class="text-gray-200">Delivery</h1>
-              <p>Depends upon your location usually take 3-5 bussiness Days.</p>
-            </div>
-            <div class="my-2 flex items-center justify-between text-3xl">
-              <span>Total</span>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-400">Rs. <b
-                  id="total">
-                  <%=subTotal + shippingFee%>
-                </b></span>
-            </div>
-            <% if (length > 0){%>
-              <br>
-              <hr>
-              <br>
-              <p>Shipping address</p>
-              <br>
-              <p><%= addressinfo.apartment%>, <%= addressinfo.city%>, <%= addressinfo.state%>, <%= addressinfo.country%>  <%= addressinfo.pincode%> .</p>
-              <br>
-              <a href="/product/add-address">Change Address</a>
-              <hr>
-              <form action="/product/order-placed" method="GET">
-                <button class="w-40 mt-10 bg-indigo-700 hover:bg-indigo-800 py-3 text-white text-xl rounded-full">
-                  Place Order &#10132;
-                </button>
-              </form>
+                <hr />
+                <form action="/product/order-placed" method="GET">
+                  <button class="w-44 mt-10 bg-indigo-700 hover:bg-indigo-800 py-3 text-white text-xl rounded-full">
+                    Place Order &nbsp;&nbsp; &#10132;
+                  </button>
+                </form>
 
-            <%}else{%>
-            <form action="/product/add-address" method="GET">
-              <button class="w-40 mt-10 bg-indigo-700 hover:bg-indigo-800 py-3 text-white text-xl rounded-full">
-                Checkout &#10132;
-              </button>
-            </form>
-           <%}%>
-
+                <%}else{%>
+                  <form action="/product/add-address" method="GET">
+                    <button class="w-40 mt-10 bg-indigo-700 hover:bg-indigo-800 py-3 text-white text-xl rounded-full">
+                      Checkout &nbsp;&nbsp; &#10132;
+                    </button>
+                  </form>
+                  <%}%>
+            </div>
           </div>
         </div>
-      </div>
   </main>
   <%}else{%>
 
-    <section class="poppins-medium flex flex-col space-y-4 w-full lg:w-6/12 bg-zinc-900 p-6 md:p-10 rounded-xl">
-
-
+    <section
+      class="my-10 poppins-medium flex flex-col items-center space-y-4 w-full bg-zinc-900/30 p-6 md:p-10 rounded-xl">
       <div>
-        <h1 class="text-5xl text-emerald-300 mt-4 mb-1">Your Anime Aura Cart is Empty</h1>
-        <hr class="w-[100%] mb-4" />
+        <h1 class="w-fit text-[2rem] text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-orange-400">
+          Cart's on a diet, shedding items like confetti at a celebration!
+        </h1>
 
+        <div class=" flex justify-center w-full h-96">
+          <img class=" w-96 h-96" src="/images/admin/cart.gif" alt="">
+        </div>
       </div>
     </section>
     <%}%>
-  <%}%>
-      <script>
+      <%}%>
+        <script>
       <% if (flash.success && flash.success.length > 0) {%>
-          new Noty({
-            theme: 'sunset',
-            text: '<h3><%= flash.success%></h3>',
-            type: 'success',
-            layout: 'topRight',
-            timeout: 3000
-          }).show();
+            new Noty({
+              theme: 'sunset',
+              text: '<h3><%= flash.success%></h3>',
+              type: 'success',
+              layout: 'topRight',
+              timeout: 3000
+            }).show();
               <% } %>
 
               <% if (flash.error && flash.error.length > 0) {%>
-          new Noty({
-            theme: 'sunset',
-            text: '<%= flash.error%>',
-            type: 'error',
-            layout: 'topRight',
-            timeout: 3000
-          }).show();
+            new Noty({
+              theme: 'sunset',
+              text: '<%= flash.error%>',
+              type: 'error',
+              layout: 'topRight',
+              timeout: 3000
+            }).show();
               <% } %>
-      </script>
-      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        </script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
