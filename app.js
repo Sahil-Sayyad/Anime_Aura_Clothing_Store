@@ -21,6 +21,8 @@ app.use(express.static("./public"));
 //set up the view engine
 app.set("view engine", "ejs");
 app.set("views", "./views");
+
+app.use("/uploads", express.static(__dirname + "/uploads"));
 //handle session cookie
 app.use(
   session({
@@ -50,6 +52,7 @@ app.use(flash());
 app.use(customMware.setFlash);
 //express routes handler
 app.use("/", require("./routes"));
+
 //start the server
 app.listen(port, (err) => {
   if (err) {
