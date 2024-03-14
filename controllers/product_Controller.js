@@ -213,10 +213,19 @@ module.exports.orderHistory = async (req, res) => {
       orderdate: currentdate,
       user: req.user._id,
     });
+
     for (let item of cartinfo) {
-      order.product.push(item.product._id);
-      user.cart.pop(item.product._id);
+      // console.log("Quantity : ", item.quantity);
+
+      // order.billing.quantity = item.quantity;
+      order.billing.push({
+        quantity: item.quantity,
+        product: item.product._id
+      });
     }
+
+    user.cart = [];
+
     user.order.push(order);
     await order.save();
     await user.save();
