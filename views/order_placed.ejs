@@ -9,10 +9,8 @@
   <link rel="icon" type="image/x-icon" href="/images/home/logo.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
-  <link rel="stylesheet" href="/stylesheets/sign_up_sign_in.css" />
   <link rel="stylesheet" href="/stylesheets/main.css" />
   <link rel="stylesheet" href="/stylesheets/tailwind.css" />
-  <link rel="stylesheet" href="/stylesheets/cart.css" />
 </head>
 
 <body>
@@ -54,49 +52,45 @@
     </div>
   </nav>
 
-  <main class="px-[5%] mt-24 font-comfortaa text-white max-w-[1700px]">
-      <section class="poppins-medium flex flex-col space-y-4 w-full lg:w-6/12 bg-zinc-900 p-6 md:p-10 rounded-xl">
-          
-          
-          <div>
-              <h1 class="text-5xl text-emerald-300 mt-4 mb-1">Your Order Placed Successfully</h1>
-              <hr class="w-[100%] mb-4" />
-              
-            </div>
-        </section>
-        <div class="w-56 py-3 px-3 flex items-center justify-around hover:scale-95 ease-linear bg-gradient-to-tr from-lime-300 to-indigo-400 rounded-md cursor-pointer">
-            
-            
-            <button class="text-gray-800 text-2xl font-semibold">
-                <a href="/product/order-history">See Order History</a>
-            </button>
-            
-        </div>
-    </main>
-            
-      <script>
+  <main class="px-[5%] mt-24 font-poppins text-white w-full">
+    <section class="flex flex-col items-center gap-10 w-full bg-zinc-900/30 p-6 md:p-10 rounded-xl">
+      <div>
+        <h1 class="w-fit text-5xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-orange-400">
+          Order Placed Successfully
+        </h1>
+      </div>
+
+      <img class=" w-96 h-96" src="/images/admin/delivery.gif" alt="">
+      <button
+        class="w-fit text-gray-800 text-2xl px-4 py-2 font-semibold hover:scale-95 ease-linear bg-gradient-to-r from-fuchsia-500 to-cyan-500 rounded-md cursor-pointer">
+        <a href="/product/order-history">See Order History</a>
+      </button>
+    </section>
+  </main>
+
+  <script>
       <% if (flash.success && flash.success.length > 0) {%>
-          new Noty({
-            theme: 'sunset',
-            text: '<h3><%= flash.success%></h3>',
-            type: 'success',
-            layout: 'topRight',
-            timeout: 3000
-          }).show();
+      new Noty({
+        theme: 'sunset',
+        text: '<h3><%= flash.success%></h3>',
+        type: 'success',
+        layout: 'topRight',
+        timeout: 3000
+      }).show();
               <% } %>
 
               <% if (flash.error && flash.error.length > 0) {%>
-          new Noty({
-            theme: 'sunset',
-            text: '<%= flash.error%>',
-            type: 'error',
-            layout: 'topRight',
-            timeout: 3000
-          }).show();
+      new Noty({
+        theme: 'sunset',
+        text: '<%= flash.error%>',
+        type: 'error',
+        layout: 'topRight',
+        timeout: 3000
+      }).show();
               <% } %>
-      </script>
-      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
