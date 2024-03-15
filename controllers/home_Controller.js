@@ -101,3 +101,14 @@ module.exports.women = async (req, res) => {
     return;
   }
 };
+
+// # First, fetch the changes from the remote repository
+// git fetch origin
+
+// # Then, merge the changes into your local branch (assuming you're on the main branch)
+// git merge origin/main
+
+// # Resolve any merge conflicts if there are any, and then commit the changes
+
+// # Finally, push your changes to the remote repository
+// git push origin main
