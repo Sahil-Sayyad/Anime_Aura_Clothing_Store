@@ -12,21 +12,13 @@ module.exports.signIn = async (req, res) => {
 
 module.exports.create = async (req, res) => {
   try {
-    const admins = [
+       const admin = [
       {
-        email: "igsahilsayyad@gmail.com",
-        password: "1234",
-      },
-      {
-        email: "rushabtak@gmail.com",
-        password: "1234",
-      },
-      {
-        email: "rohitbhalekar@gmail.com",
-        password: "1234",
+        email: "admin@gmail.com",
+        password: "admin",
       },
     ];
-    await Admin.create(admins);
+    await Admin.create(admin);
     return res.redirect("/admin/sign-in");
   } catch (err) {
     console.log(err);
