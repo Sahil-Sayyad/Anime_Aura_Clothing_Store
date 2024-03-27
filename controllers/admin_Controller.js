@@ -1,7 +1,7 @@
 const Admin = require("../models/admin");
 const Product = require("../models/product");
 const { generateRefreshToken } = require("../config/refreshToken");
-const { generateToken } = require("../config/jwtToken");
+const cloudinary = require('cloudinary').v2;
 
 //render sign-In page
 module.exports.signIn = async (req, res) => {
@@ -14,16 +14,8 @@ module.exports.create = async (req, res) => {
   try {
     const admins = [
       {
-        email: "igsahilsayyad@gmail.com",
-        password: "1234",
-      },
-      {
-        email: "rushabtak@gmail.com",
-        password: "1234",
-      },
-      {
-        email: "rohitbhalekar@gmail.com",
-        password: "1234",
+        email: "admin@gmail.com",
+        password: "admin",
       },
     ];
     await Admin.create(admins);
@@ -94,37 +86,24 @@ module.exports.dashBoard = async (req, res) => {
   }
 };
 
-module.exports.product = async (req, res) => {
-  try {
-    const products = await Product.find({});
-    if (products) {
-      return res.render("admin_product", {
-        title: "Anime Aura | Admin Product",
-        products: products,
-      });
-    }
-    return res.render("admin_product", {
-      title: "Anime Aura | Admin Product",
-    });
-  } catch (err) {
-    console.log(err);
-    return;
-  }
-};
 
 module.exports.createProduct = async (req, res) => {
   try {
     const { title, category, price, shoppingCategory } = req.body;
-    let path = req.file.path;
+
+    const result = await cloudinary.uploader.upload(req.file.path);
+    const imageUrl = result.secure_url; // Get the image URL from Cloudinary response
+
     const product = await Product.create({
       title,
       category,
       price,
       shoppingCategory,
-      image: path,
+      image: imageUrl,
     });
+    console.log(imageUrl);
     req.flash("success", "Product Added Successfully");
-    return res.redirect("/admin/product");
+    return res.redirect("back ");
   } catch (err) {
     console.log(err);
     return;
