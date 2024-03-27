@@ -45,9 +45,6 @@
 ### Prerequisites
 - <b>NodeJs Any Version</b>
 
-### Usage
-
-
 ## Tech Stack
 
 -  <b> 1. Front-end </b>
