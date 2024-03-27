@@ -8,7 +8,7 @@
  <b>Test user</b>
      <p>username: test@gmail.com</p>
      <p>password: test@1234 </p>
- <b>Test admin</b>
+ <b>Test admin</b> (you need to hit end point for this /admin/sign-in)
      <p>username: admin@gmail.com</p>
      <p>password: admin </p>
 ## Table of Contents
