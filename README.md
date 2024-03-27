@@ -60,33 +60,43 @@
 
 ## Project Demo
  - <b> <i> Login Page  </i></b> <br><br>
-![Web capture_5-8-2023_112647_localhost](https://github.com/Sahil-Sayyad/Q-A_Nexus/assets/96423459/aefbc24a-545a-4c57-b774-0e1e2fd0124f)
+![image](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/a08b8add-6042-4022-846a-07410260269a)
+
 
 -  <b> <i> Sign Up  Page  </i></b> <br><br>
-![Web capture_5-8-2023_112757_localhost](https://github.com/Sahil-Sayyad/Q-A_Nexus/assets/96423459/62aabc34-da73-4927-95fd-377adf41c147)
+![Screenshot 2024-03-28 at 03-12-32 Anime Aura Sign Up](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/18b7bf5d-5282-4198-8b36-69033fcaeeed)
 
--  <b> <i> Forget Password Page  </i></b> <br><br>
+-  <b> <i> Admin Sign Up Page  </i></b> <br><br>
+![Screenshot 2024-03-28 at 03-13-53 Anime Aura Admin Sign In](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/2dead30f-f3fb-424d-9363-ce1919809f1d)
 
-![Web capture_5-8-2023_112839_localhost](https://github.com/Sahil-Sayyad/Q-A_Nexus/assets/96423459/26c0b6eb-1fb5-4fd5-9a65-81aacb800d9f)
-
--  <b> <i> Home Page  </i></b> <br><br>
-![Web capture_5-8-2023_112929_localhost](https://github.com/Sahil-Sayyad/Q-A_Nexus/assets/96423459/03449dc4-1b40-45c8-900e-77c17e64710b)
-
--  <b> <i>User Profile Page  </i></b> <br><br>
-![Web capture_5-8-2023_11302_localhost](https://github.com/Sahil-Sayyad/Q-A_Nexus/assets/96423459/9d0344a8-a6e1-488d-8ad1-c82fc244f5cf)
-
--  <b> <i> Specific User Profile Page </i></b> <br><br>
-![Web capture_5-8-2023_113052_localhost](https://github.com/Sahil-Sayyad/Q-A_Nexus/assets/96423459/c7bab0b9-feb7-4504-87f4-afb0c36ad72e)
+-  <b> <i>Home Page </i></b> <br><br>
+![Screenshot 2024-03-28 at 03-15-18 Anime Aura](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/acc3553f-8371-4b97-bb6c-dc9319d99c9a)
 
 
--  <b> <i> Ask Question Page  </i></b> <br><br>
-![quoraAsk](https://github.com/Sahil-Sayyad/Quora_Clone/assets/96423459/dd7aa4d8-a6bb-48d4-b862-3e3f9a37392e)
+-  <b> <i> Product Description Page</i></b> <br><br>
+![Screenshot 2024-03-28 at 03-16-43 Anime Aura Product](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/fc07e0b5-86f2-4e63-b65f-a470a22c87c7)
 
--  <b> <i> Add Answer Page   </i></b> <br><br>
-![Web capture_5-8-2023_113135_localhost](https://github.com/Sahil-Sayyad/Q-A_Nexus/assets/96423459/6c735544-19e9-4901-94b9-9e43fa293f56)
 
--  <b> <i> Add Comment Page  </i></b> <br><br>
-![Web capture_5-8-2023_11333_localhost](https://github.com/Sahil-Sayyad/Q-A_Nexus/assets/96423459/4018c667-9465-4cda-bc3d-3841d947042d)
+-  <b> <i> Empty Cart Page  </i></b> <br><br>
+![Screenshot 2024-03-28 at 03-17-55 Anime Aura Cart](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/bc21635d-37e6-49a4-a1bd-3f4f412f1d67)
+
+-  <b> <i> Shipping Address Page   </i></b> <br><br>
+![Screenshot 2024-03-28 at 03-20-39 Anime Aura Add Address](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/8b69cb7c-39ba-4d87-bf4e-c87db1bdf47f)
+
+-  <b> <i> Cart Page  </i></b> <br><br>
+![Screenshot 2024-03-28 at 03-21-23 Anime Aura Cart](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/1638c432-301f-45f7-ae9b-a65516dd32f1)
+
+-  <b> <i> Order Place successfully Page  </i></b> <br><br>
+![Screenshot 2024-03-28 at 03-22-05 Anime Aura Order Placed](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/01c2d391-9969-4bda-95d4-f3700620e4e7)
+
+-  <b> <i> Order History Page  </i></b> <br><br>
+![Screenshot 2024-03-28 at 03-23-54 Anime Aura Profile](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/3b60765b-4a1f-46bd-b1ab-92a6b7052438)
+
+-  <b> <i> Admin Dashboard  </i></b> <br><br>
+![Screenshot 2024-03-28 at 03-26-24 Anime Aura Dashboard](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/39879eaf-8468-4164-ba29-abe22ddb336b)
+
+-  <b> <i> About Page  </i></b> <br><br>
+![Screenshot 2024-03-28 at 03-24-42 Anime Aura About](https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App/assets/96423459/79e27863-c95c-42c1-b723-855e9d9029cf)
 
 
 ## Author
@@ -95,4 +105,3 @@
 - Name: Sahil Sayyad
 - GitHub:  <a href = "https://github.com/Sahil-Sayyad/Anime_Aura_E-Commerce_App"> <b>Link</b> </a>
 - Email: sahilsayyad.dev@gmail.com
-- Website: ..
