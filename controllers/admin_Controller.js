@@ -103,7 +103,7 @@ module.exports.createProduct = async (req, res) => {
     });
     console.log(imageUrl);
     req.flash("success", "Product Added Successfully");
-    return res.redirect("back ");
+    return res.redirect("back");
   } catch (err) {
     console.log(err);
     return;
