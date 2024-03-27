@@ -27,6 +27,8 @@
      <p>Users can Browse products in category like men and women.</p>
 -  <b>4. Add to cart / place order</b>
      <p>Users can add products to cart and place order.</p>
+-  <b>4. Remove from cart </b>
+     <p>Users can remove products from cart.</p>
 -  <b>5. Order History</b>
      <p>Users can see the order history.</p>
 ## Getting Started
