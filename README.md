@@ -1,9 +1,9 @@
-# Anime Aura Clothing Shop
+# Anime Aura Clothing Store
   
- <b> Developed an e-commerce platform focused on anime clothing for men and women. Anime Aura is an store where you can find great Clothes related to anime. Anime Aura is an o platform that contributes to the modernization of anime fashion culture by offering a unique variety of anime-inspired clothing. <b> 
+ <b> Developed an e-commerce web app focused on anime clothing for men and women. Anime Aura is an store where you can find great Clothes related to anime. Anime Aura is an o platform that contributes to the modernization of anime fashion culture by offering a unique variety of anime-inspired clothing. <b> 
 
 # Deployed Link 
- <b>https://animeaura.onrender.com</b>
+<b>[Live Link](https://animeaura.onrender.com)</b>
  
  <b>Test user</b>
      <p>username: test@gmail.com</p>
